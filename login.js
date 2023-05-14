@@ -8,7 +8,7 @@ myForm.addEventListener('submit', function(event) {
       const bookingcode = document.querySelector('#bookingcode').value;
       
       if(bookingcode!=''){
-        window.location.href = `file:///C:/Users/hp4/Desktop/OnTrip%20Help%20Login%20v2.0.1/user.html?bookingcode=${bookingcode}`;
+        window.location.href = `https://ontripstaging.onrender.com/login?bookingcode=${bookingcode}`;
       }
       
     //   console.log(bookingcode + lastName)

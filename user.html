@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>On Trip Help</title>
+    <link rel="stylesheet" href="user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body class="body">
+<div class="fakebody">
+    <div class="output"></div>
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+    <div class = "formBody" style="display: none;">
+        <div class="failedLogin"></div>
+        <form id ="loginForm" class="loginForm">
+                <div class="textContent">
+                    <label for="bookingcode" class="formHeads">Login Id</label>
+                    <input placeholder="Enter Your LoginId Code" type="text" id="bookingcode" name="bookingcode">
+                    
+                </div>
+                
+                <button type="submit" class="btnx">Log in</button> 
+               
+        </div> 
+        </form>
+        <div class="otherlogin" style="display: none;"><h2 class="fmessage">Unable to Login</h2><a class="whatsappcta" href="https://api.whatsapp.com/send/?phone=9319294076&amp;text&amp;type=phone_number&amp;app_absent=0" target="_blank">Chat on Whatsapp</a></div>
+     </div>
+</div>
+<script src="user.js"></script>
+
+</body>
+</html>

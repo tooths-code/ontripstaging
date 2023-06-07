@@ -19,7 +19,8 @@ const urlParams = new URLSearchParams(window.location.search);
 	 fetch(`${url}?bcode=${bcode}`)
         .then(res => res.json())
         .then(data => {
-            bodyData = data;
+		
+            [bodyData] = [...data];
             
             
             if(data.error){

@@ -15,7 +15,8 @@ const urlParams = new URLSearchParams(window.location.search);
         const loader = document.querySelector('.loader');
         // loader.innerHTML = 'LOADING DATA....';
         let bodyData = null;
-        fetch(`${url}?route=ontriphelp&bcode=${bcode}&lastName=${lname}`)
+//         fetch(`${url}?route=ontriphelp&bcode=${bcode}&lastName=${lname}`)
+	 fetch(`${url}?bcode=${bcode}`)
         .then(res => res.json())
         .then(data => {
             bodyData = data;

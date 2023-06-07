@@ -80,14 +80,14 @@ const urlParams = new URLSearchParams(window.location.search);
                 //SECTION3 - TRIP CAPTAIN
                 elementMaker('h1', tripcaptain, 'headings','','Your Trip Captain is always<br>there to help you out');
                 const tripcaptaindetail = elementMaker('div', tripcaptain, 'agentinfo','','');
-                elementMaker('div', tripcaptaindetail, 'chatdivtextsubheading','',bodyData.support.tripOfficer);
-                elementMaker('div', tripcaptaindetail, 'chatdivtextsubheading','',`+91 ${bodyData.support.tripOfficerNo}`);
+                elementMaker('div', tripcaptaindetail, 'chatdivtextsubheading','',bodyData.support[0].tripOfficer);
+                elementMaker('div', tripcaptaindetail, 'chatdivtextsubheading','',`+91 ${bodyData.support[0].tripOfficerNo}`);
                 const buttondiv = elementMaker('div', tripcaptain, 'buttondiv','','');
                 const tripCaptaincall = elementMaker('a', buttondiv, 'chatdivlink2','','Call Now');
-                tripCaptaincall.setAttribute('href',`tel:+91-${bodyData.support.tripOfficerNo}`);
+                tripCaptaincall.setAttribute('href',`tel:+91-${bodyData.support[0].tripOfficerNo}`);
         
                 const chatcall = elementMaker('a', buttondiv, 'chatdivlink3','','Whatsapp');
-                chatcall.setAttribute('href', bodyData.support.whatsappLink);
+                chatcall.setAttribute('href', bodyData.support[0].whatsappLink);
                 chatcall.setAttribute('target','_blank');
                 
         

@@ -155,7 +155,7 @@ const urlParams = new URLSearchParams(window.location.search);
                  const section4 = elementMaker('div', output, 'section4','','');
                  elementMaker('h3', section4, 'headings3','','Frequently Asked Question');
                  const faqData = elementMaker('div', section4, 'faqdata','','');
-                 bodyData.faq.map((item, index)=> {
+                 bodyData.faq[0].map((item, index)=> {
                      const faq = elementMaker('details', faqData, 'faqdataBlock', '', '');
                      const faqHeader = elementMaker('summary', faq, 'faqHeader', '', `Q. ${item.question}`);
                      const faqContent = elementMaker('div', faq, 'faqContent', '', item.answer);

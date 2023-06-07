@@ -14,7 +14,7 @@ const urlParams = new URLSearchParams(window.location.search);
 				const otherways = document.querySelector('.otherlogin');
         const loader = document.querySelector('.loader');
         // loader.innerHTML = 'LOADING DATA....';
-        let bodyData = null;
+        let bodyData = [];
 //         fetch(`${url}?route=ontriphelp&bcode=${bcode}&lastName=${lname}`)
 	 fetch(`${url}?bcode=${bcode}`)
         .then(res => res.json())

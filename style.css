@@ -1,0 +1,580 @@
+@media only screen and (max-width: 700px) {
+    body {
+      background-color: lightblue;
+    }
+  }
+@font-face {
+    font-family: 'Uber';
+    src: url('https://ontriphelp.com/wp-content/uploads/2023/04/UberMove-Bold.woff2') format('woff2'),
+         url('https://ontriphelp.com/wp-content/uploads/2023/04/UberMove-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Uber';
+    src: url('https://ontriphelp.com/wp-content/uploads/2023/04/UberMove-Regular.woff2') format('woff2'),
+         url('https://ontriphelp.com/wp-content/uploads/2023/04/UberMove-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Uber';
+    src: url('https://ontriphelp.com/wp-content/uploads/2023/04/UberMove-Medium.woff2') format('woff2'),
+         url('https://ontriphelp.com/wp-content/uploads/2023/04/UberMove-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
+.fakebody {
+    background-image: url(https://ontriphelp.com/wp-content/uploads/2023/04/aeron-ng-car-ride-03.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-color: #000000d7; */
+    background-blend-mode: multiply;
+    padding: 0;
+}
+.formBody {
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100vh;
+    gap: 20px;
+}
+
+.innerdiv {
+    display: flex;
+    font-family: "Uber";
+    justify-content: space-between;
+    width: 100%;
+    padding: 0em 2em;
+    align-items: center;
+}
+
+.bookingid {
+    font-size: 2em;
+}
+
+
+.tripdest {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Uber";
+}
+
+
+.name {
+    font-size: 1.86em;
+}
+
+.tripdate {
+    display: flex;
+    justify-content: flex-start;
+    gap: 3pc;
+    font-family: "Uber";
+}
+
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: rgb(255, 255, 255);
+    }
+    body.body {
+        margin: 0px;
+    }
+
+    .name {
+        font-size: 1.67em;
+    }
+
+
+    .bookingid {
+        font-size: 1em;
+        font-weight: 500;
+    }
+
+    .innerdiv {
+        display: flex;
+        font-family: "Uber";
+        justify-content: space-between;
+        width: 94%;
+        align-items: center;
+        padding: 0px;
+        color: white;
+    }
+
+    .section1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4em;
+    padding: 2em 0.6em 1.4em 0.6em;
+    background: #0085F2;
+    }
+
+    .tripdest {
+        display: flex;
+        justify-content: space-between;
+        font-family: "Uber";
+        align-items: center;
+        margin-top: 0.5em;
+    }
+    
+    .destination {
+        font-size: 2.2em;
+        font-weight: 700;
+    }
+
+    .tripstatus {
+        padding: 0.3em 0.6em;
+        background: #C3FFB9;
+        border-radius: 6px;
+        font-weight: 500;
+        color: #26A811;
+    }
+
+    .innerdiv2 {
+        width: 90%;
+        background: white;
+        padding: 1em;
+        border-radius: 0.7em;
+        gap: 1.6em;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .smallheads {
+        font-size: 0.9em;
+        font-weight: 500;
+        color: #7B7B7B;
+    }
+
+    .tripDates {
+        font-size: 1.4em;
+        font-weight: 600;
+    }
+
+    .tripCta {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        font-family: "Uber";
+        gap: 1em;
+        margin-top: -0.5em;
+    }
+    
+    a.voucher {
+        font-size: 1.1em;
+        padding: 0.8em 1em;
+        background: #0085F2;
+        color: white;
+        text-decoration: none;
+        border-radius: 0.4em;
+        font-weight: 500;
+        width: -webkit-fill-available;
+        text-align: center;
+    }
+
+
+    a.guide {
+         font-size: 1.1em;
+         padding: 0.8em 1em;
+        text-align: center;
+        background: #C4E3FC;
+        color: #0085F2;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 0.4em;
+        width: -webkit-fill-available;
+    }
+
+    .message {
+        letter-spacing: 0.4px;
+        line-height: 1.2em;
+        font-family: "Uber";
+        font-weight: 500;
+        font-size: 1.1em;
+        color: white;
+        text-align: center;
+        width: 90%;
+    }
+
+    .section2 {
+        padding: 0.7em;
+        font-family: "Uber";
+    }
+
+    .innerSection {
+        padding: 1.5em 0.6em 1.5em 0.9em;
+        display: flex;
+        flex-direction: column;
+        border: solid;
+        border-width: 1px;
+        border-radius: 1em;
+        border-color: #80808026;
+        gap: 1em;
+    }
+
+    .innerDiv::before {
+        content: '';
+        background: url(https://ontriphelp.com/wp-content/uploads/2023/06/Location.png);
+        display: inline-block;
+        background-size: contain;
+        width: 3.5em;
+        height: 3.3em;
+        background-repeat: no-repeat;
+    }
+
+    .innerDiv {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.2em;
+    }
+
+    .pickuploct {
+        font-weight: 800;
+        font-size: 1.18em;
+        color: #000000;
+    }
+
+    .location {
+        font-size: 1.22em;
+        font-weight: 500;
+        color: #222222;
+    }
+
+    .innerDivx {
+        display: flex;
+        gap: 0.2em;
+        flex-direction: column;
+        letter-spacing: -0.1px;
+    }
+    
+
+    .dcall {
+        background-image: url(https://ontriphelp.com/wp-content/uploads/2023/06/Frame-36.png);
+        display: inline-block;
+        background-size: contain;
+        width: 3em;
+        height: 3em;
+        background-repeat: no-repeat;
+    }
+
+    .dchat {
+        background-image: url(https://ontriphelp.com/wp-content/uploads/2023/06/WhatsApp-1.png);
+        display: inline-block;
+        background-size: contain;
+        width: 3em;
+        height: 3em;
+        background-repeat: no-repeat;
+    }
+
+    .innerDiv2 {
+        display: flex;
+        gap: 1.2em;
+        align-items: center;
+    }
+
+    .divider{
+        border: solid;
+        border-width: 0.3px 0px 0px 0px;
+        border-color: #80808026;
+    }
+
+    .section3 {
+        padding: 0.7em;
+        font-family: "Uber";
+    }
+
+    .tripofficer {
+        font-size: 1.9em;
+        font-weight: 500;
+        z-index: 1;
+        position: relative;
+        display: flex;
+        color: white;
+        padding-bottom: 0.15em;
+    }
+
+    .tripx {
+        font-size: 1.1em;
+        position: relative;
+        z-index: 1;
+        color: white;
+        font-weight: 300;
+    }
+
+   .innerdiv3 {
+    padding: 1em;
+}
+
+.innerdiv4 {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    margin-top: 1em;
+    position: relative;
+    z-index: 1;
+}
+
+.namecontact {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: white;
+}
+
+.dividerx{
+    margin:1em 0em;
+    border: dotted;
+    border-width: 1.8px 0 0 0;
+    background: rgba(255, 255, 255, 0.171);
+    position: relative;
+    z-index: 1;
+}
+
+.innerdiv3 {
+    padding: 1.3em 1.6em;
+    background: url(https://ontriphelp.com/wp-content/uploads/2023/06/image-19-1-2.jpg);
+    background-size: cover;
+    border-radius: 1.1em;
+    overflow: hidden;
+    position: relative;
+}
+
+.expertoverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgb(32 32 32) 51%, rgb(0 0 0 / 53%) 77%);
+}
+
+.section5 {
+    font-family: "Uber";
+    padding: 0em 1.5em;
+}
+
+h3.headings3 {
+    margin-bottom: 1.4em;
+}
+
+.faqdata {
+    font-weight: 500;
+}
+
+.section4 {
+    font-family: "Uber";
+    padding: 0em 1.5em;
+    padding-bottom: 1.6em;
+}
+
+h3.headings2 {
+    font-size: 1.6em;
+    color: #282828;
+}
+
+.listingcard {
+    background: #939393;
+    padding: 1em;
+    border-radius: 1.2em;
+    height: 187px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    position: relative;
+    flex: 0 0 32%;
+    scroll-snap-align: start;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.listinggrid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: 100%;
+    gap: 0.9em;
+    scroll-behavior: smooth;
+    touch-action: pan-y;
+}
+
+.restaurantname {
+    font-size: 1.3em;
+    font-weight: 600;
+}
+
+span.person {
+    font-size: 0.5em;
+}
+
+.dishprices {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+.cardpricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.3em;
+    position: relative;
+    color: white;
+    white-space: pre-wrap;
+}
+
+.fivider {
+    border: solid;
+    border-width: 0.6px 0 0 0;
+}
+
+.reviews {
+    font-size: 14px;
+    padding-top: 0.67em;
+}
+
+.listingcard {
+    background-size: cover;
+}
+
+.cardoverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgb(0 0 0 / 0%) 26%, rgb(34 34 34) 69%);
+}
+
+.cardpricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.3em;
+    position: relative;
+    color: white;
+}
+
+.cardhead {
+    position: relative;
+    color: white;
+}
+
+.listinggrid::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+.detailsoverlay {
+    height: 100vh;
+    background: #00000087;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-family: "Uber";
+}
+
+.restname {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.restpopup {
+    padding: 1.6em 1em 1em 1em;
+    background: white;
+    border-radius: 1em 1em 0 0;
+}
+
+.tagcontainer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.4em;
+    margin: 1em 0em;
+}
+
+.tags {
+    padding: 0.3em 0.8em;
+    background: #a5c4f3;
+    border-radius: 0.4em;
+    border: solid;
+    border-width: 1px;
+    border-color: #a6b3f5;
+}
+
+.restctacontainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    margin-top: 1.5em;
+}
+.restnameholder {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 1em;
+}
+
+.back {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.back::before {
+    background: url(https://ontriphelp.com/wp-content/uploads/2023/06/Vector-5-2.png);
+    background-size: contain;
+    height: 1em;
+    display: inline-flex;
+    width: 1em;
+    content: '';
+    margin-right: 0.4em;
+    background-repeat: no-repeat;
+    align-items: center;
+}
+
+summary.faqHeader {
+    padding: 0.7em;
+}
+
+
+.faqdataBlock {
+    
+    font-size: 16.3px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #303030;
+    border: solid;
+    border-width: 0px 0px 1px 0px;
+    border-color: lightgrey;
+    padding-bottom: 2px;
+}
+
+.faqContent {
+    padding: 16.3px;
+    color: #292929;
+    font-size: 17px;
+    letter-spacing: 0.8px;
+    font-weight: 400;
+}
+
+h3.headings3 {
+    margin-bottom: 0.8em;
+    font-size: 1.4em;
+    letter-spacing: -0.4px;
+    margin-top: 1.6em;
+}
+
+  }

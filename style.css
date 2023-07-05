@@ -88,14 +88,15 @@
     }
 
     .name {
-        font-size: 1.67em;
+        font-size: 1.5em;
     }
 
 
     .bookingid {
-        font-size: 1em;
+        font-size: 0.8em;
         font-weight: 500;
     }
+
 
     .innerdiv {
         display: flex;
@@ -120,14 +121,16 @@
         display: flex;
         justify-content: space-between;
         font-family: "Uber";
-        align-items: center;
+        align-items: flex-start;
         margin-top: 0.5em;
     }
     
     .destination {
-        font-size: 2.2em;
+        font-size: 2em;
         font-weight: 700;
+        color: #2c2c2c;
     }
+    
 
     .tripstatus {
         padding: 0.3em 0.6em;
@@ -135,6 +138,7 @@
         border-radius: 6px;
         font-weight: 500;
         color: #26A811;
+        font-size: 0.9em;
     }
 
     .innerdiv2 {
@@ -154,7 +158,7 @@
     }
 
     .tripDates {
-        font-size: 1.4em;
+        font-size: 1.2em;
         font-weight: 600;
     }
 
@@ -163,41 +167,41 @@
         flex-direction: row;
         justify-content: space-between;
         font-family: "Uber";
-        gap: 1em;
+        gap: 0.7em;
         margin-top: -0.5em;
     }
-    
-    a.voucher {
-        font-size: 1.1em;
-        padding: 0.8em 1em;
-        background: #0085F2;
-        color: white;
-        text-decoration: none;
-        border-radius: 0.4em;
-        font-weight: 500;
-        width: -webkit-fill-available;
-        text-align: center;
-    }
+
+ a.voucher {
+    font-size: 1em;
+    padding: 0.8em 0.5em;
+    background: #0085F2;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.4em;
+    font-weight: 500;
+    width: -webkit-fill-available;
+    text-align: center;
+}
 
 
-    a.guide {
-         font-size: 1.1em;
-         padding: 0.8em 1em;
-        text-align: center;
-        background: #C4E3FC;
-        color: #0085F2;
-        font-weight: 500;
-        text-decoration: none;
-        border-radius: 0.4em;
-        width: -webkit-fill-available;
-    }
+a.guide {
+    font-size: 1em;
+    padding: 0.8em 0.5em;
+    text-align: center;
+    background: #C4E3FC;
+    color: #0085F2;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 0.4em;
+    width: -webkit-fill-available;
+}
 
     .message {
         letter-spacing: 0.4px;
         line-height: 1.2em;
         font-family: "Uber";
         font-weight: 500;
-        font-size: 1.1em;
+        font-size: 0.9em;
         color: white;
         text-align: center;
         width: 90%;
@@ -243,7 +247,7 @@
     }
 
     .location {
-        font-size: 1.22em;
+        font-size: 18px;
         font-weight: 500;
         color: #222222;
     }
@@ -292,7 +296,7 @@
     }
 
     .tripofficer {
-        font-size: 1.9em;
+        font-size: 1.5em;
         font-weight: 500;
         z-index: 1;
         position: relative;
@@ -302,7 +306,7 @@
     }
 
     .tripx {
-        font-size: 1.1em;
+        font-size: 0.95em;
         position: relative;
         z-index: 1;
         color: white;
@@ -323,9 +327,10 @@
 }
 
 .namecontact {
-    font-size: 1.2em;
-    font-weight: 500;
+    font-size: 0.9em;
+    font-weight: 400;
     color: white;
+    letter-spacing: 1px;
 }
 
 .dividerx{
@@ -338,12 +343,13 @@
 }
 
 .innerdiv3 {
-    padding: 1.3em 1.6em;
+    padding: 1.2em 1.4em;
     background: url(https://ontriphelp.com/wp-content/uploads/2023/06/image-19-1-2.jpg);
     background-size: cover;
     border-radius: 1.1em;
     overflow: hidden;
     position: relative;
+    background-position-x: -26px;
 }
 
 .expertoverlay {
@@ -370,26 +376,27 @@ h3.headings3 {
 
 .section4 {
     font-family: "Uber";
-    padding: 0em 1.5em;
+    padding: 0em 0em;
     padding-bottom: 1.6em;
 }
 
 h3.headings2 {
     font-size: 1.6em;
     color: #282828;
+    padding: 0em 1.2em;
 }
 
 .listingcard {
     background: #939393;
     padding: 1em;
     border-radius: 1.2em;
-    height: 187px;
+    height: 181px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     overflow: hidden;
     position: relative;
-    flex: 0 0 32%;
+    flex: 0 0 31%;
     scroll-snap-align: start;
     white-space: nowrap;
     cursor: pointer;
@@ -399,13 +406,14 @@ h3.headings2 {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
     width: 100%;
     height: 100%;
     gap: 0.9em;
+    margin-left: 15px;
     scroll-behavior: smooth;
-    touch-action: pan-y;
+    touch-action: pan-x;
 }
+
 
 .restaurantname {
     font-size: 1.3em;
@@ -563,9 +571,9 @@ summary.faqHeader {
 }
 
 .faqContent {
-    padding: 16.3px;
+    padding: 15.3px;
     color: #292929;
-    font-size: 17px;
+    font-size: 0.9em;
     letter-spacing: 0.8px;
     font-weight: 400;
 }

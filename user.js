@@ -99,7 +99,7 @@ const bcode = urlParams.get('bookingcode');
                       elementMaker('div', pickupLocationx, 'pickuploct','','Pick Up Location');
                       elementMaker('div', pickupLocationx, 'location','',bodyData.apLocation);
                       
-                      elementMaker('div', driverDetailx, 'location','',`<b>${bodyData.driver.driverName}</b> will be at the Pick Up Location!`);
+                      elementMaker('div', driverDetailx, 'location','',`Driver Name: <b>${bodyData.driver.driverName}</b>`);
                       elementMaker('div', driverDetailx, 'location','',`+${bodyData.driver.driverCode} ${bodyData.driver.driverNumber}`);
 
                     

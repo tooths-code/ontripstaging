@@ -130,7 +130,7 @@
         font-weight: 700;
         color: #2c2c2c;
     }
-    
+
 
     .tripstatus {
         padding: 0.3em 0.6em;
@@ -222,14 +222,13 @@ a.guide {
         border-color: #80808026;
         gap: 1em;
     }
-
     .innerDiv::before {
         content: '';
         background: url(https://ontriphelp.com/wp-content/uploads/2023/06/Location.png);
         display: inline-block;
         background-size: contain;
-        width: 3.5em;
-        height: 3.3em;
+        width: 3em;
+        height: 3em;
         background-repeat: no-repeat;
     }
 
@@ -377,6 +376,7 @@ h3.headings3 {
 .section4 {
     font-family: "Uber";
     padding: 0em 0em;
+    overflow: hidden;
     padding-bottom: 1.6em;
 }
 

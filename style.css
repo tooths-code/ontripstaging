@@ -29,21 +29,148 @@
 
 
 .fakebody {
-    background-image: url(https://ontriphelp.com/wp-content/uploads/2023/04/aeron-ng-car-ride-03.jpg);
+    background-image: url(https://ontriphelp.com/wp-content/uploads/2023/07/Group-1.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     /* background-color: #000000d7; */
     background-blend-mode: multiply;
     padding: 0;
+
 }
+
 .formBody {
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-    height: 100vh;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.failedLogin {
+    color: #ffffff;
+    font-weight: 500;
+    margin-top: 10px;
+    font-family: 'Uber';
+    padding: 7px;
+    background-color: #ff0000;
+    border-radius: 7px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 15px;
+    padding: 5px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.failedLogin::before {
+    content: '';
+    background-image: url(https://ontriphelp.com/wp-content/uploads/2023/04/close.png);
+    display: inline-block;
+    height: 20px;
+    width: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 8px;
+}
+
+#loginForm {
+    width: 70%;
+    background-color: rgb(255 255 255);
+    border-radius: 10px;
+    padding: 21px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 22px;
+}
+
+.textContent {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    gap: 1em;
+    row-gap: 1em;
+    column-gap: 1em;
+}
+
+.formHeads {
+    font-family: 'Uber';
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 4px;
+    font-size: 1.2em;
+}
+
+#bookingcode {
+    margin-bottom: 9px;
+    border-width: 1px;
+    padding: 17px;
+    border-radius: 6px;
+    border-color: #00000047;
+    font-family: 'Uber';
+    font-size: 17px;
+    background-color: #fbfbfb;
+}
+
+.btnx {
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    padding: 16px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Uber';
+    font-size: 19px;
+    width: 100%;
+}
+
+.otherlogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.fmessage {
+    margin: 0;
+    font-family: 'Uber';
+    font-weight: 400;
+    font-size: 18px;
+    color: white;
+}
+
+.whatsappcta {
+    align-self: center;
+    padding: 3px 12px;
+    text-decoration: none;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.04);
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Uber';
+    border: solid;
+    border-color: white;
+}
+
+.whatsappcta::before {
+    content: '';
+    background-image: url(https://ontriphelp.com/wp-content/uploads/2023/04/WhatsApp.png);
+    display: inline-block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 45px;
+    height: 32px;
 }
 
 .innerdiv {
@@ -87,6 +214,59 @@
         margin: 0px;
     }
 
+   .hello {
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    background: #0000005b;
+    z-index: 100;
+}
+
+.hellox {
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    background: #0085F2;
+    z-index: 100;
+}
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    font-family: 'Uber';
+    color: white;
+}
+
+      .lds-dual-ring:before {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1em;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #fff transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+    }
+      @keyframes lds-dual-ring {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      
+
     .name {
         font-size: 1.5em;
     }
@@ -106,6 +286,33 @@
         align-items: center;
         padding: 0px;
         color: white;
+    }
+
+    .section0 {
+        font-family: 'Uber';
+        text-align: center;
+        padding: 0.5em;
+        background-color: #0085f2;
+        color: white;
+        border: solid;
+        border-width: 0px 0px 1px 0px;
+    }
+
+    .agencyName {
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .agencyName::before {
+        content: "";
+        background: url(https://ontriphelp.com/wp-content/uploads/2023/07/Vector.png);
+        display: inline-block;
+        width: 26px;
+        height: 23px;
+        background-repeat: no-repeat;
+        background-size: contain;
     }
 
     .section1 {
@@ -213,7 +420,7 @@ a.guide {
     }
 
     .innerSection {
-        padding: 1.5em 0.6em 1.5em 0.9em;
+        padding: 1.5em 0.6em 1.1em 0.9em;
         display: flex;
         flex-direction: column;
         border: solid;
@@ -241,14 +448,31 @@ a.guide {
 
     .pickuploct {
         font-weight: 800;
-        font-size: 1.18em;
-        color: #000000;
+        font-size: 1.1em;
+        color: #161616;
     }
 
     .location {
         font-size: 18px;
         font-weight: 500;
         color: #222222;
+    }
+
+    .locationname {
+        font-size: 1.09em;
+        font-weight: 500;
+        color: #222222;
+    }
+
+    .innerDivy {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 14px;
+        padding: 0.4em 0.9em;
+        border-radius: 0.4em;
+        background-color: #C4E3FC;
+        color: #161616;
     }
 
     .innerDivx {
@@ -281,6 +505,7 @@ a.guide {
         display: flex;
         gap: 1.2em;
         align-items: center;
+        margin-bottom: 0.3em;
     }
 
     .divider{
@@ -347,6 +572,7 @@ a.guide {
     background-size: cover;
     border-radius: 1.1em;
     overflow: hidden;
+    background-repeat: no-repeat;
     position: relative;
     background-position-x: -26px;
 }
@@ -404,14 +630,14 @@ h3.headings2 {
 
 .listinggrid {
     display: flex;
-    overflow-x: auto;
+    overflow: auto;
     scroll-snap-type: x mandatory;
     width: 100%;
     height: 100%;
     gap: 0.9em;
     margin-left: 15px;
     scroll-behavior: smooth;
-    touch-action: pan-x;
+    touch-action: pan-x pan-y;
 }
 
 
@@ -584,5 +810,7 @@ h3.headings3 {
     letter-spacing: -0.4px;
     margin-top: 1.6em;
 }
+
+
 
   }

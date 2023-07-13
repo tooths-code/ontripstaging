@@ -11,9 +11,9 @@ const bcode = urlParams.get('bookingcode');
         const output = document.querySelector('.output');
         const fakebody = document.querySelector('.fakebody');
         const formbody = document.querySelector('.formBody');
-        const failedLogs = document.querySelector('.failedLogin');
+        // const failedLogs = document.querySelector('.failedLogin');
 				const otherways = document.querySelector('.otherlogin');
-        const loader = document.querySelector('.loader');
+        const loader = document.querySelector('.hellox');
         
         let bodyData = null;
 
@@ -26,6 +26,7 @@ const bcode = urlParams.get('bookingcode');
         
 
         if(data.error){
+
           failedlogin();
           
       }
@@ -36,18 +37,24 @@ const bcode = urlParams.get('bookingcode');
       })
       
             
-            
                 function failedlogin(){
-                  output.innerHTML = 'Oops! Incorrect Password';
+                  output.innerHTML = '';
+                  loader.style.display='none';
+                  formbody.style.display='flex';
+                  otherways.style.display='flex';
                 }   
            
                 function builduserdata(){
+                  loader.style.display='none';
                     output.innerHTML = '';
-                    loader.style.display='none';
+                    // loader.style.display='none';
                     fakebody.setAttribute("style", "background-image: url('');");
 
-                  
-                    
+
+
+                    //Section 0 Travel Agent Name
+                    const section0 = elementMaker('div', output, 'section0','','');
+                    elementMaker('div', section0, 'agencyName','',bodyData.agencyName);
              
 
                       //HERO SECTION
@@ -73,15 +80,26 @@ const bcode = urlParams.get('bookingcode');
                       const tripEnd = elementMaker('div', tripdate, 'tripdates','','');
                       elementMaker('div', tripEnd, 'smallheads','','Departure Date');
                       elementMaker('div', tripEnd, 'tripDates','',bodyData.tripEnd);
-
-                      const downloadVoucher = elementMaker('a', tripCta, 'voucher','','Download Voucher');
-                      downloadVoucher.setAttribute('href',bodyData.voucher);
-                      downloadVoucher.setAttribute('target','_blank');
                       
+                      bodyData.destinationGuide ? voucherguide():voucheronly()
 
-                      const destinationGuide = elementMaker('a', tripCta, 'guide','','Destination Guide');
-                      destinationGuide.setAttribute('href',bodyData.destinationGuide);
-                      destinationGuide.setAttribute('target','_blank');
+                      function voucherguide(){
+                        const downloadVoucher = elementMaker('a', tripCta, 'voucher','','Download Voucher');
+                        downloadVoucher.setAttribute('href',bodyData.voucher);
+                        downloadVoucher.setAttribute('target','_blank');
+                        
+  
+                        const destinationGuide = elementMaker('a', tripCta, 'guide','','Destination Guide');
+                        destinationGuide.setAttribute('href',bodyData.destinationGuide);
+                        destinationGuide.setAttribute('target','_blank');
+                      }
+
+                      function voucheronly(){
+                        const downloadVoucher = elementMaker('a', tripCta, 'voucher','','Download Voucher');
+                        downloadVoucher.setAttribute('href',bodyData.voucher);
+                        downloadVoucher.setAttribute('target','_blank');
+                      }
+                      
                     
 
                       //AIRPORT PICK UP DETAILS
@@ -89,18 +107,31 @@ const bcode = urlParams.get('bookingcode');
                       const innerSection = elementMaker('div', section2, 'innerSection','','');
                       const pickupLocation = elementMaker('div', innerSection, 'innerDiv','','');
                       const pickupLocationx = elementMaker('div', pickupLocation, 'innerDivx','','');
-                      elementMaker('div', innerSection, 'divider','','');
-                      const driverDetail = elementMaker('div', innerSection, 'innerDiv2','','');
-                      const driverCall = elementMaker('a', driverDetail, 'dcall','','');
-                      driverCall.setAttribute('href', `tel:+${bodyData.driver.driverCode} ${bodyData.driver.driverNumber}`);
-                      driverCall.setAttribute('target','_blank');
-                      const driverDetailx = elementMaker('div', driverDetail, 'innerDivx','','');
-
                       elementMaker('div', pickupLocationx, 'pickuploct','','Pick Up Location');
                       elementMaker('div', pickupLocationx, 'location','',bodyData.apLocation);
-                      
-                      elementMaker('div', driverDetailx, 'location','',`Driver Name: <b>${bodyData.driver.driverName}</b>`);
-                      elementMaker('div', driverDetailx, 'location','',`+${bodyData.driver.driverCode} ${bodyData.driver.driverNumber}`);
+                      elementMaker('div', innerSection, 'divider','','');
+
+                      bodyData.driverStatus === "Driver Assigned"?driverDetials():remarks();
+
+                      function driverDetials(){
+                        const driverDetail = elementMaker('div', innerSection, 'innerDiv2','','');
+                        const driverCall = elementMaker('a', driverDetail, 'dcall','','');
+                        driverCall.setAttribute('href', `tel:+${bodyData.driver.driverCode} ${bodyData.driver.driverNumber}`);
+                        driverCall.setAttribute('target','_blank');
+                        const driverDetailx = elementMaker('div', driverDetail, 'innerDivx','','');
+                        elementMaker('div', driverDetailx, 'locationname','',`Driver Name: <b>${bodyData.driver.driverName}</b>`);
+                        elementMaker('div', driverDetailx, 'location','',`+${bodyData.driver.driverCode} ${bodyData.driver.driverNumber}`);
+
+                        const driverRemarks = elementMaker('div', innerSection, 'innerDivy','','');
+                        elementMaker('div', driverRemarks, 'locationx','',`<b>Remarks:</b> ${bodyData.driverRemarks}`);
+                      }
+                     
+                      function remarks(){
+                        const driverRemarks = elementMaker('div', innerSection, 'innerDivy','','');
+                        elementMaker('div', driverRemarks, 'locationx','',`<b>Remarks:</b> ${bodyData.driverRemarks}`);
+                      }
+
+                     
 
                     
 
@@ -126,107 +157,144 @@ const bcode = urlParams.get('bookingcode');
                       elementMaker('span', officerContact, 'namecontact','',`+91 ${bodyData.supportData[0]. phoneNumber}`);
 
                       
-                       
-                      //Section3 - Restaurant Details
-                      const section4 = elementMaker('div', output, 'section4','','');
-                      elementMaker('h3', section4, 'headings2','',`Top Restaurants in ${bodyData.destination}`);
-                      const restaurantGrid = elementMaker('div', section4, 'listinggrid','','');
-                      
-                     
-                      
-                          //Get Current Card Data
-                          function getRestaurantDetails(e, cardName) {
-                            const restaurant =  `${cardName}, ${bodyData.destination}`;
+                       if(bodyData.restaurantListing[0]){
                             
-                            const resturl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=restaurantdetail&restaurant=${restaurant}`;
+                        //Section3 - Restaurant Details
+                        const section4 = elementMaker('div', output, 'section4','','');
+                        elementMaker('h3', section4, 'headings2','',`Top Restaurants in ${bodyData.destination}`);
+                        const restaurantGrid = elementMaker('div', section4, 'listinggrid','','');
 
-                                fetch(resturl, {
-                                    method: 'GET',
-                                }).then(res => res.json()).then(data => {
-                                  // console.log(data);
-                                  restdetails(data);
-                                })
-                          
+                              //SPINNER LOADER
+                              function showSpinner() {
+                                const spinner = document.querySelector('.hello');
+                                spinner.style.display = 'flex';
+                              }
+                              
+                              function hideSpinner() {
+                                const spinner = document.querySelector('.hello');
+                                spinner.style.display = 'none'; 
+                              }
 
-                          }
+                            //Current Destination Restaurant Listing
+                            async function getAllRestaurants() {
+                              const destination = bodyData.destination;
+                              const resturl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=allrestaurantList&destination=${destination}`;
+                            
+                              const response = await fetch(resturl);
+                              const data = await response.json();
+                              return data;
+                            }
+                            
+
+                            
+                            
+                            let currentRestaurant = null;
+
+                            //Get Current Card Data Listing
+                            async function getRestaurantDetails(e, cardName) {
+                              showSpinner();
+
+                              let data;
+                              if (!currentRestaurant) {
+                                data = await getAllRestaurants();
+                                currentRestaurant = data;
+                              } else {
+                                data = currentRestaurant;
+                              }
+                              // console.log(data)
+                              hideSpinner();
+                              const foundItem = data.find(item => item.restName === cardName);
+                              // console.log(foundItem);
+                              restdetails(foundItem); 
+                            }
+
+                            
+
+                            //Get Current Card Data Listing but it make multiple API Hits
+                            // function getRestaurantDetails(e, cardName) {
+                            //   const restaurant =  `${cardName}, ${bodyData.destination}`;
+                              
+                            //   const resturl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=restaurantdetail&restaurant=${restaurant}`;
+  
+                            //       fetch(resturl, {
+                            //           method: 'GET',
+                            //       }).then(res => res.json()).then(data => {
+                            //         // console.log(data);
+                            //         restdetails(data);
+                            //       })
+                            // }
+
+                            const restaruantpopup = elementMaker('div', fakebody, 'detailsoverlay','','');
+                            const popup = document.querySelector('.detailsoverlay');
+                            popup.style.display="none";
                       
+                    
+
+
+
                       //POP FOR RESTAURANT
-                      
-                      const restaruantpopup = elementMaker('div', fakebody, 'detailsoverlay','','');
-                      const popup = document.querySelector('.detailsoverlay');
-                      popup.style.display="none"
-
-                      
                       let innerPopUp; 
-                     
 
-                      
-                        function restdetails(data){
-                          
-                          if(innerPopUp){
-                            innerPopUp.remove()                            
-                          }
-                          
-                          innerPopUp =  elementMaker('div', restaruantpopup, 'restpopup','','');
-                          innerPopUp.style.display = "none"; // Set initial display to none
-
-                          const restname = elementMaker('div', innerPopUp, 'restnameholder','','');
-                                
-                          elementMaker('div', restname, 'restname','',data[0].restName);
-                          elementMaker('div', restname, 'back','','Back');
-                          elementMaker('div', innerPopUp, 'restrating','',`${data[0].starrating} ⭐ Ratings | ${data[0].price} for Two`);
-    
-                          const cuisine =  elementMaker('div', innerPopUp, 'tagcontainer','','');
-                          data[0].cuisines.forEach(items=>{
-                            elementMaker('div', cuisine, 'tags','',items);
-
-                          })
-                          
-                  
-    
-                          elementMaker('div', innerPopUp, 'restlocation','',data[0].location);
-    
-                          const restcta =  elementMaker('div', innerPopUp, 'restctacontainer','','');
-                          const callnow = elementMaker('a', restcta, 'voucher','','Call Restaurant');
-                          callnow.setAttribute('href', `tel:${data[0].countrycode}`);
-                          callnow.setAttribute('target','_blank');
-                          
-    
-                          const direction = elementMaker('a', restcta, 'guide','','View in Map');
-                          direction.setAttribute('href', data[0].mapdirection);
-                          direction.setAttribute('target','_blank');
-                          
-                          innerPopUp.style.display = "block"
-
-                          const closepopup = document.querySelector('.back');
-                      
-                          closepopup.addEventListener('click', (e)=> {
-                            popup.setAttribute('style','display:none');
-                            // console.log(innerPopUp)
-                            innerPopUp.remove();
-                          });
-
+                      function restdetails(data){
+                        
+                        if(innerPopUp){
+                          innerPopUp.remove()                            
                         }
+
+                       
+                        
+                        innerPopUp =  elementMaker('div', restaruantpopup, 'restpopup','','');
+                        innerPopUp.style.display = "none"; 
+
+                        const restname = elementMaker('div', innerPopUp, 'restnameholder','','');
+                              
+                        elementMaker('div', restname, 'restname','',data.restName);
+                        elementMaker('div', restname, 'back','','Back');
+                        elementMaker('div', innerPopUp, 'restrating','',`${data.starrating} ⭐ Ratings | ${data.price} for Two`);
+  
+                        const cuisine =  elementMaker('div', innerPopUp, 'tagcontainer','','');
+                        data.cuisines.forEach(items=>{
+                          elementMaker('div', cuisine, 'tags','',items);
+
+                        })
                         
                 
+  
+                        elementMaker('div', innerPopUp, 'restlocation','',data.location);
+  
+                        const restcta =  elementMaker('div', innerPopUp, 'restctacontainer','','');
+                        const callnow = elementMaker('a', restcta, 'voucher','','Call Restaurant');
+                        callnow.setAttribute('href', `tel:${data.countrycode}`);
+                        callnow.setAttribute('target','_blank');
+                        
+  
+                        const direction = elementMaker('a', restcta, 'guide','','View in Map');
+                        direction.setAttribute('href', data.mapdirection);
+                        direction.setAttribute('target','_blank');
+                        
+                        innerPopUp.style.display = "block"
+
+                        const closepopup = document.querySelector('.back');
+                    
+                        closepopup.addEventListener('click', (e)=> {
+                          popup.setAttribute('style','display:none');
+                          // console.log(innerPopUp)
+                          innerPopUp.remove();
+                        });
+
+                      }
+
                      
-                      
-                      
-
-
-                      
-
-
-
-                     
-
-
-
                       bodyData.restaurantListing.forEach((items) => {
                         const restaurantCard = elementMake('div', restaurantGrid, 'listingcard','','',items.coverimage);
                         restaurantCard.addEventListener('click', (e) => {
-                          getRestaurantDetails(e, items.restName);
+                          
                           popup.setAttribute('style','display:flex');
+                          //After First Click I have removed a function to prevent multiple API Calls that pulls the entire destination restuarant data
+                          
+                          getRestaurantDetails(e, items.restName);
+ 
+                          
 
                         });
         
@@ -241,9 +309,9 @@ const bcode = urlParams.get('bookingcode');
                         elementMaker('div', cardpricing, 'dishprices','',`${items.price} <span class="person">per person*</span>`);
                       });
 
-
-
+                    }
                       
+                
                       //Frequently Asked Question
                       const section5 = elementMaker('div', output, 'section5','','');
                       elementMaker('h3', section5, 'headings3','','Frequently Asked Question');
@@ -268,15 +336,6 @@ const bcode = urlParams.get('bookingcode');
 
 
 
-       
-     
-
-        
-
-             
-       
-          
-       
 
         //Element Creator Function
         function elementMaker(t, p, c, i, h) {

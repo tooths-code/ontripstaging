@@ -201,7 +201,7 @@
 .tripdate {
     display: flex;
     justify-content: flex-start;
-    gap: 3pc;
+    gap: 4pc;
     font-family: "Uber";
 }
 
@@ -400,30 +400,31 @@
         margin-top: -0.5em;
     }
 
- a.voucher {
-    font-size: 1em;
-    padding: 0.8em 0.5em;
-    background: #0085F2;
-    color: white;
-    text-decoration: none;
-    border-radius: 0.4em;
-    font-weight: 500;
-    width: -webkit-fill-available;
-    text-align: center;
-}
+    a.voucher {
+        font-size: 16px;
+        padding: 0.8em 0.5em;
+        background: #0085F2;
+        color: white;
+        text-decoration: none;
+        border-radius: 0.4em;
+        font-weight: 500;
+        width: -webkit-fill-available;
+        text-align: center;
+        align-self: center;
+    }
 
 
-a.guide {
-    font-size: 1em;
-    padding: 0.8em 0.5em;
-    text-align: center;
-    background: #C4E3FC;
-    color: #0085F2;
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: 0.4em;
-    width: -webkit-fill-available;
-}
+    a.guide {
+        font-size: 16px;
+        padding: 0.8em 0.5em;
+        text-align: center;
+        background: #C4E3FC;
+        color: #0085F2;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 0.4em;
+        width: -webkit-fill-available;
+    }
 
     .message {
         letter-spacing: 0.4px;
@@ -449,7 +450,7 @@ a.guide {
         border-width: 1px;
         border-radius: 1em;
         border-color: #80808026;
-        gap: 1em;
+        gap: 0.8em;
     }
     .innerDiv::before {
         content: '';

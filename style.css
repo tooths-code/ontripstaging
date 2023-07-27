@@ -217,7 +217,12 @@
     body.body {
         margin: 0px;
     }
-
+    .innerDiv2 {
+    display: flex;
+    gap: 1.2em;
+    align-items: center;
+    margin-bottom: 0.3em;
+}
     .hello {
         height: 100vh;
         justify-content: center;

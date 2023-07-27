@@ -140,6 +140,63 @@ const bcode = urlParams.get('bookingcode');
                       elementMaker('span', officerContact, 'namecontact','',`+91 ${bodyData.supportData[0]. phoneNumber}`);
 
                       
+                       //TRIP HAPPINESS OFFICER
+                       const section98 = elementMaker('div', output, 'section10','','');
+                       elementMaker('div', section98, 'innerHeads','','Quick Links');
+                       const quickGrid = elementMaker('div', section98, 'innerGrid','','');
+
+                       //Links for Quick Grid
+                       const dyknow = elementMaker('a', quickGrid, 'linkGrids','','');
+                       dyknow.setAttribute('href', `https://www.google.com/`);
+                       dyknow.setAttribute('target','_blank');
+
+                       const igspots = elementMaker('a', quickGrid, 'linkGrids','','');
+                       igspots.setAttribute('href', `https://www.google.com/`);
+                       igspots.setAttribute('target','_blank');
+
+                       const romget = elementMaker('a', quickGrid, 'linkGrids','','');
+                       romget.setAttribute('href', `https://www.google.com/`);
+                       romget.setAttribute('target','_blank');
+
+                       const sophacks = elementMaker('a', quickGrid, 'linkGrids','','');
+                       sophacks.setAttribute('href', `https://www.google.com/`);
+                       sophacks.setAttribute('target','_blank');
+
+                       const kidspec = elementMaker('a', quickGrid, 'linkGrids','','');
+                       kidspec.setAttribute('href', `https://www.google.com/`);
+                       kidspec.setAttribute('target','_blank');
+
+                       const pubspot = elementMaker('a', quickGrid, 'linkGrids','','');
+                       pubspot.setAttribute('href', `https://www.google.com/`);
+                       pubspot.setAttribute('target','_blank');
+
+
+                       const container1 =  elementMaker('div', dyknow, 'gridcontainer','','');
+                                            elementMake('div', container1, 'imgGrid','','','https://ontriphelp.com/wp-content/uploads/2023/07/My-project-30-1.png');
+                                            elementMaker('div', container1, 'textGrid','','Did you<br>know');
+                       
+                       const container2 =  elementMaker('div', igspots, 'gridcontainer','','');
+                                            elementMake('div', container2, 'imgGrid','','','https://ontriphelp.com/wp-content/uploads/2023/07/Camera.png');
+                                            elementMaker('div', container2, 'textGrid','','Instagram<br>Spots');
+
+                       const container3 =  elementMaker('div', romget, 'gridcontainer','','');
+                                            elementMake('div', container3, 'imgGrid','','','https://ontriphelp.com/wp-content/uploads/2023/07/Love-Circled.png');
+                                            elementMaker('div', container3, 'textGrid','','Romantic Getaways');
+
+                       const container4 =  elementMaker('div', sophacks, 'gridcontainer','','');
+                                            elementMake('div', container4, 'imgGrid','','','https://ontriphelp.com/wp-content/uploads/2023/07/Shopaholic.png');
+                                            elementMaker('div', container4, 'textGrid','','Shopping<br>Hacks');
+
+                       const container5 =  elementMaker('div', kidspec, 'gridcontainer','','');
+                                            elementMake('div', container5, 'imgGrid','','','https://ontriphelp.com/wp-content/uploads/2023/07/Brick.png');
+                                            elementMaker('div', container5, 'textGrid','','Kids<br>Special');
+
+                       const container6 =  elementMaker('div', pubspot, 'gridcontainer','','');
+                                            elementMake('div', container6, 'imgGrid','','','https://ontriphelp.com/wp-content/uploads/2023/07/Champagne-Bottle.png');
+                                            elementMaker('div', container6, 'textGrid','','Bar & Pub<br>Spots');
+                       
+
+
                        if(bodyData.restaurantListing[0]){
                             
                         //Section3 - Restaurant Details
@@ -412,6 +469,8 @@ const bcode = urlParams.get('bookingcode');
           }
           
 
+          
+        
         
 })
 

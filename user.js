@@ -14,28 +14,15 @@ const bcode = urlParams.get('bookingcode');
         // const failedLogs = document.querySelector('.failedLogin');
 				const otherways = document.querySelector('.otherlogin');
         const loader = document.querySelector('.hellox');
+        const loadery = document.querySelector('.helloloader');
         
         let bodyData = null;
 
+       
 
-        fetch(url, {
-          method: 'GET',
-      }).then(res => res.json()).then(data => {
-        bodyData = data[0]
-        console.log(bodyData)
-        
-
-        if(data.error){
-
-          failedlogin();
-          
-      }
-      else{
-          builduserdata();
-      }
-
-      })
-      
+      fetch(url,{method:'GET'}).then(res=>res.json()).then(data=>{bodyData=data}).then(kee=>{fetch(`https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=todolist&destination=${bodyData.destination}`,{method:'GET'}).then(response => response.text()).then(loop => {const decode = JSON.parse(atob(loop));if(bodyData.error){failedlogin()}else{builduserdata(decode)}}).catch(error => {console.error('Error fetching checkbox items:', error)});})
+     
+   
             
                 function failedlogin(){
                   output.innerHTML = '';
@@ -44,7 +31,7 @@ const bcode = urlParams.get('bookingcode');
                   otherways.style.display='flex';
                 }   
            
-                function builduserdata(){
+                function builduserdata(jsonData){
                   loader.style.display='none';
                     output.innerHTML = '';
                     // loader.style.display='none';
@@ -133,10 +120,6 @@ const bcode = urlParams.get('bookingcode');
 
                      
 
-                    
-
-
-
                       //TRIP HAPPINESS OFFICER
                       const section3 = elementMaker('div', output, 'section3','','');
                       const tripofficer = elementMaker('div', section3, 'innerdiv3','','');
@@ -208,21 +191,7 @@ const bcode = urlParams.get('bookingcode');
                               restdetails(foundItem); 
                             }
 
-                            
-
-                            //Get Current Card Data Listing but it make multiple API Hits
-                            // function getRestaurantDetails(e, cardName) {
-                            //   const restaurant =  `${cardName}, ${bodyData.destination}`;
-                              
-                            //   const resturl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=restaurantdetail&restaurant=${restaurant}`;
-  
-                            //       fetch(resturl, {
-                            //           method: 'GET',
-                            //       }).then(res => res.json()).then(data => {
-                            //         // console.log(data);
-                            //         restdetails(data);
-                            //       })
-                            // }
+                  
 
                             const restaruantpopup = elementMaker('div', fakebody, 'detailsoverlay','','');
                             const popup = document.querySelector('.detailsoverlay');
@@ -306,10 +275,75 @@ const bcode = urlParams.get('bookingcode');
                         elementMaker('div', cardhead, 'reviews','',`${items.reviews}+ Reviews`);
                         elementMaker('div', cardpricing, 'restaurantname','',items.restName);
                         elementMaker('div', cardpricing, 'fivider','','');
-                        elementMaker('div', cardpricing, 'dishprices','',`${items.price} <span class="person">per person*</span>`);
+                        // elementMaker('div', cardpricing, 'dishprices','',`${items.price} <span class="person">per person*</span>`);
+                        elementMaker('div', cardpricing, 'dishprices','',`${items.price}`);
                       });
 
                     }
+
+
+
+
+                    //create Spot & Strike Task list
+                    const section6 = elementMaker('div', output, 'section6','','');
+                    elementMaker('h3', section6, 'labelheadings','','Spot & Strike');
+                    const taskListDiv = elementMaker('div', section6, 'tasklizt','lizt','');
+                    
+                      jsonData.forEach(task => {
+                        const checkboxwrapper = document.createElement('div');
+                        checkboxwrapper.classList.add('checkwraper');
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.value = task.uniqueCode;
+                        checkbox.name='taskLists';
+                        const preSelected = bodyData.checklist.uniqueCode
+                        checkbox.checked = preSelected.includes(task.uniqueCode);
+        
+                        checkbox.addEventListener('change', () => {
+                          loadery.style.display='flex';
+                          sendCheckedValues();
+                        });
+
+                        const labelWrapper = document.createElement('div');
+                        labelWrapper.classList.add('labelwrapper');
+                        
+                        const label = document.createElement('label');
+                        label.classList.add('labelhead')
+                        label.textContent = task.taskName;
+
+                        const subLabel = document.createElement('div');
+                        subLabel.classList.add('subLabel')
+                        subLabel.innerText = task.description;
+                        
+                        labelWrapper.appendChild(label);
+                        labelWrapper.appendChild(subLabel);
+
+                        checkboxwrapper.appendChild(checkbox);
+                        checkboxwrapper.appendChild(labelWrapper);;
+                        taskListDiv.appendChild(checkboxwrapper)
+                      });
+
+
+                      //SET CHECKED VALUES
+                      function sendCheckedValues() {
+                        const checkedValues = Array.from(document.querySelectorAll('input[name="taskLists"]:checked'))
+                          .map(checkbox => checkbox.value);
+
+                          const tasks = JSON.stringify(checkedValues);
+
+                          const urlder = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=userList&queryCode=${bodyData.bookingcode}&tasks=${tasks}`;
+
+                          fetch(urlder,{method:'GET'}).then(res => res.json())
+                          .then(data => { 
+                            loadery.style.display='none';
+                            // console.log(data)
+                          })
+                          .catch(error => {
+                            console.error('Error:', error);
+                          });
+                        
+                          // console.log(tasks)
+                        }
                       
                 
                       //Frequently Asked Question
@@ -331,8 +365,14 @@ const bcode = urlParams.get('bookingcode');
                           });
                         
                       });
+
+                       //Footer
+                       const section8 = elementMaker('div', output, 'section8','','');
+                       const innerSection8 = elementMaker('div', section8, 'innersection8','','');
+                       elementMaker('div', innerSection8, 'sectionheadings','','All rights reserved 2023');
           
             }
+
 
 
 
@@ -371,9 +411,7 @@ const bcode = urlParams.get('bookingcode');
             return p.appendChild(el);
           }
           
-
-          
-        
+  
         
 })
 

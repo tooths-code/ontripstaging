@@ -300,7 +300,7 @@ const bcode = urlParams.get('bookingcode');
                         checkbox.checked = preSelected.includes(task.uniqueCode);
         
                         checkbox.addEventListener('change', () => {
-                          loadery.style.display='flex';
+                          // loadery.style.display='flex';
                           sendCheckedValues();
                         });
 
@@ -335,7 +335,7 @@ const bcode = urlParams.get('bookingcode');
 
                           fetch(urlder,{method:'GET'}).then(res => res.json())
                           .then(data => { 
-                            loadery.style.display='none';
+                            // loadery.style.display='none';
                             // console.log(data)
                           })
                           .catch(error => {
@@ -411,7 +411,7 @@ const bcode = urlParams.get('bookingcode');
             return p.appendChild(el);
           }
           
-  
+
         
 })
 

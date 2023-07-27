@@ -610,11 +610,15 @@ a.guide {
 
 .section5 {
     font-family: "Uber";
-    padding: 0em 1.5em;
+    padding: 0 1em;
 }
 
 h3.headings3 {
-    margin-bottom: 1.4em;
+    margin-bottom: 0.8em;
+    font-size: 1.6em;
+    letter-spacing: -0.4px;
+    margin-top: 1.6em;
+    padding: 0 0.4em;
 }
 
 .faqdata {
@@ -802,9 +806,9 @@ span.person {
 }
 
 summary.faqHeader {
-    padding: 0.7em;
+    padding: 0.8em;
+    font-size: 1.1em;
 }
-
 
 .faqdataBlock {
     
@@ -821,7 +825,7 @@ summary.faqHeader {
 .faqContent {
     padding: 15.3px;
     color: #292929;
-    font-size: 0.9em;
+    font-size: 1em;
     letter-spacing: 0.8px;
     font-weight: 400;
 }
@@ -831,8 +835,8 @@ h3.headings3 {
     font-size: 1.6em;
     letter-spacing: -0.4px;
     margin-top: 1.6em;
+    padding: 0 0.4em;
 }
-
 /* wrapper */
 .checkwraper {
     display: flex;
@@ -842,11 +846,11 @@ h3.headings3 {
 }
 
 .subLabel {
-    text-wrap: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
-    display: block;
-    width: 17em;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 70vw;
 }
 
 

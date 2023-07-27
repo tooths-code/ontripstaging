@@ -927,4 +927,55 @@ h3.labelheadings {
     font-size: 14px;
     background: #007cff26;
 }
+
+.innerGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: stretch;
+    align-items: center;
+    gap: 0.8em;
+    padding: 0em 0.7em;
+}
+
+.textGrid {
+    text-align: center;
+}
+
+.section10 {
+    font-family: 'Uber';
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+    margin: 1.4em 0em;
+}
+
+.imgGrid {
+    height: 3.4em;
+    width: 3.4em;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.gridcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0em;
+    background: #E9F5FF;
+    border-radius: 1.3em;
+}
+
+.innerHeads {
+    font-size: 1.6em;
+    color: #282828;
+    padding: 0em 1.2em;
+    font-weight: 700;
+}
+
+a.linkGrids {
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+}
+
   }

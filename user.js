@@ -299,12 +299,15 @@ const bcode = urlParams.get('bookingcode');
                         direction.setAttribute('target','_blank');
                         
                         innerPopUp.style.display = "block"
+                        document.body.classList.add('body-scroll-lock');
+                        document.querySelector('.body-scroll-lock').style.overflow="hidden";
 
                         const closepopup = document.querySelector('.back');
                     
                         closepopup.addEventListener('click', (e)=> {
                           popup.setAttribute('style','display:none');
                           // console.log(innerPopUp)
+                          document.querySelector('.body-scroll-lock').style.overflow="";
                           innerPopUp.remove();
                         });
 

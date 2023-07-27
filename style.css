@@ -191,6 +191,9 @@
     display: flex;
     justify-content: space-between;
     font-family: "Uber";
+    align-items: flex-start;
+    margin-top: 0.5em;
+    width: 96%;
 }
 
 
@@ -203,6 +206,7 @@
     justify-content: flex-start;
     gap: 4pc;
     font-family: "Uber";
+    width: 95%;
 }
 
 
@@ -390,7 +394,7 @@
         font-weight: 600;
     }
 
-  .tripCta {
+ .tripCta {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -398,8 +402,8 @@
     gap: 0.4em;
     margin-top: -0.5em;
     align-items: stretch;
+    width: 100%;
 }
-
 
 
 a.voucher {

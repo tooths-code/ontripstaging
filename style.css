@@ -370,16 +370,15 @@
         font-size: 0.9em;
     }
 
-    .innerdiv2 {
-        width: 90%;
-        background: white;
-        padding: 1em;
-        border-radius: 0.7em;
-        gap: 1.6em;
-        display: flex;
-        flex-direction: column;
-    }
-
+   .innerdiv2 {
+    width: 94%;
+    background: white;
+    padding: 0.6em 0.6em;
+    border-radius: 0.7em;
+    gap: 1.6em;
+    display: flex;
+    flex-direction: column;
+}
     .smallheads {
         font-size: 0.9em;
         font-weight: 500;
@@ -403,8 +402,8 @@
 
 
 
-   a.voucher {
-    font-size: 0.9em;
+a.voucher {
+    font-size: 1em;
     padding: 0.8em 0.5em;
     background: #0085F2;
     color: white;
@@ -416,8 +415,8 @@
     align-self: center;
 }
 
-    a.guide {
-    font-size: 0.9em;
+ a.guide {
+    font-size: 1em;
     padding: 0.8em 0.5em;
     text-align: center;
     background: #C4E3FC;
@@ -428,15 +427,16 @@
     width: -webkit-fill-available;
 }
     .message {
-        letter-spacing: 0.4px;
-        line-height: 1.2em;
-        font-family: "Uber";
-        font-weight: 500;
-        font-size: 0.9em;
-        color: white;
-        text-align: center;
-        width: 90%;
-    }
+    letter-spacing: 0.4px;
+    line-height: 1.2em;
+    font-family: "Uber";
+    font-weight: 500;
+    font-size: 0.9em;
+    color: white;
+    text-align: center;
+    width: 90%;
+    margin-top: -0.4em;
+}
 
     .section2 {
         padding: 0.7em;
@@ -444,15 +444,15 @@
     }
 
     .innerSection {
-        padding: 1.5em 0.6em 1.1em 0.9em;
-        display: flex;
-        flex-direction: column;
-        border: solid;
-        border-width: 1px;
-        border-radius: 1em;
-        border-color: #80808026;
-        gap: 0.8em;
-    }
+    padding: 1.5em 0.6em 1.1em 0.9em;
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-width: 1px;
+    border-radius: 1em;
+    border-color: #80808026;
+    gap: 0.9em;
+}
     .innerDiv::before {
         content: '';
         background: url(https://ontriphelp.com/wp-content/uploads/2023/06/Location.png);
@@ -891,8 +891,8 @@ label.labelhead {
 
 input[name="taskLists"] {
     appearance: none;
-    width: 3.2em;
-    height: 3.2em;
+    width: 3em;
+    height: 3em;
     background: #ffa5005e;
     border-radius: 0.6em;
     border: solid;

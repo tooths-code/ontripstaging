@@ -350,14 +350,15 @@
     background: #0085F2;
     }
 
-    .tripdest {
-        display: flex;
-        justify-content: space-between;
-        font-family: "Uber";
-        align-items: flex-start;
-        margin-top: 0.5em;
-    }
-    
+   .tripdest {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Uber";
+    align-items: flex-start;
+    margin-top: 0.5em;
+    width: 96%;
+}
+
     .destination {
         font-size: 2em;
         font-weight: 700;
@@ -529,12 +530,16 @@ a.voucher {
         background-repeat: no-repeat;
     }
 
-    .innerDiv2 {
-        display: flex;
-        gap: 1.2em;
-        align-items: center;
-        margin-bottom: 0.3em;
-    }
+    .innerdiv2 {
+    width: 94%;
+    background: white;
+    padding: 0.6em 0.6em;
+    border-radius: 0.7em;
+    gap: 1.6em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
     .divider{
         border: solid;

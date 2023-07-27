@@ -400,32 +400,30 @@
         margin-top: -0.5em;
     }
 
-    a.voucher {
-        font-size: 16px;
-        padding: 0.8em 0.5em;
-        background: #0085F2;
-        color: white;
-        text-decoration: none;
-        border-radius: 0.4em;
-        font-weight: 500;
-        width: -webkit-fill-available;
-        text-align: center;
-        align-self: center;
-    }
-
+   a.voucher {
+    font-size: 0.9em;
+    padding: 0.8em 0.5em;
+    background: #0085F2;
+    color: white;
+    text-decoration: none;
+    border-radius: 0.4em;
+    font-weight: 500;
+    width: -webkit-fill-available;
+    text-align: center;
+    align-self: center;
+}
 
     a.guide {
-        font-size: 16px;
-        padding: 0.8em 0.5em;
-        text-align: center;
-        background: #C4E3FC;
-        color: #0085F2;
-        font-weight: 500;
-        text-decoration: none;
-        border-radius: 0.4em;
-        width: -webkit-fill-available;
-    }
-
+    font-size: 0.9em;
+    padding: 0.8em 0.5em;
+    text-align: center;
+    background: #C4E3FC;
+    color: #0085F2;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 0.4em;
+    width: -webkit-fill-available;
+}
     .message {
         letter-spacing: 0.4px;
         line-height: 1.2em;

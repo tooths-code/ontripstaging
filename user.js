@@ -144,11 +144,61 @@ const bcode = urlParams.get('bookingcode');
                        const section98 = elementMaker('div', output, 'section10','','');
                        elementMaker('div', section98, 'innerHeads','','Quick Links');
                        const quickGrid = elementMaker('div', section98, 'innerGrid','','');
+                      
+                      
+                           //DID YOU KNOW POPUP
+                           const doknow = elementMaker('div', fakebody, 'gridoverlays','','');
+                           doknow.style.display="none";
+                           const innerGridData =  elementMaker('div', doknow, 'innerGridData','','');
+                           const back = elementMaker('div', innerGridData, 'backInner','','');
+                           const backx = elementMaker('div', back, 'backx','','Back');
+                          
+                           const exhotel = elementMaker('a', innerGridData, 'linkGrids','','');
+                            exhotel.setAttribute('href', `https://www.google.com/`);
+                            exhotel.setAttribute('target','_blank');
+
+                            const bollmome = elementMaker('a', innerGridData, 'linkGrids','','');
+                            bollmome.setAttribute('href', `https://www.google.com/`);
+                            bollmome.setAttribute('target','_blank');
+
+                            const legrest = elementMaker('a', innerGridData, 'linkGrids','','');
+                            legrest.setAttribute('href', `https://www.google.com/`);
+                            legrest.setAttribute('target','_blank');
+
+                            const streefood = elementMaker('a', innerGridData, 'linkGrids','','');
+                            streefood.setAttribute('href', `https://www.google.com/`);
+                            streefood.setAttribute('target','_blank');
+
+                           const gridsData = elementMaker('div', exhotel, 'innerGridx','','');
+                           elementMaker('div', gridsData, 'innerHeadGrid','','Expensive Hotel in Dubai');
+                           elementMake('div', gridsData, 'gridIconarrow','','','https://ontriphelp.com/wp-content/uploads/2023/07/Expand-Arrow.png');
+     
+                           const gridsData2 = elementMaker('div', bollmome, 'innerGridx','','');
+                           elementMaker('div', gridsData2, 'innerHeadGrid','','5 Bollywood Moments');
+                           elementMake('div', gridsData2, 'gridIconarrow','','','https://ontriphelp.com/wp-content/uploads/2023/07/Expand-Arrow.png');
+     
+                           const gridsData3 = elementMaker('div', legrest, 'innerGridx','','');
+                           elementMaker('div', gridsData3, 'innerHeadGrid','','Indian Legacy Restaurants');
+                           elementMake('div', gridsData3, 'gridIconarrow','','','https://ontriphelp.com/wp-content/uploads/2023/07/Expand-Arrow.png');
+                         
+                           const gridsData4 = elementMaker('div', streefood, 'innerGridx','','');
+                           elementMaker('div', gridsData4, 'innerHeadGrid','','Street food lanes that you must visit');
+                           elementMake('div', gridsData4, 'gridIconarrow','','','https://ontriphelp.com/wp-content/uploads/2023/07/Expand-Arrow.png');
+
+
 
                        //Links for Quick Grid
                        const dyknow = elementMaker('a', quickGrid, 'linkGrids','','');
-                       dyknow.setAttribute('href', `https://www.google.com/`);
-                       dyknow.setAttribute('target','_blank');
+                       dyknow.addEventListener('click', (e)=> {
+                        doknow.style.display="flex";
+                        document.body.classList.add('body-scroll-lock');
+                        document.querySelector('.body-scroll-lock').style.overflow="hidden";
+                       })
+
+                       backx.addEventListener('click',(e)=>{
+                        doknow.style.display="none";
+                        document.querySelector('.body-scroll-lock').style.overflow="";
+                       })
 
                        const igspots = elementMaker('a', quickGrid, 'linkGrids','','');
                        igspots.setAttribute('href', `https://www.google.com/`);
@@ -195,6 +245,8 @@ const bcode = urlParams.get('bookingcode');
                                             elementMake('div', container6, 'imgGrid','','','https://ontriphelp.com/wp-content/uploads/2023/07/Champagne-Bottle.png');
                                             elementMaker('div', container6, 'textGrid','','Bar & Pub<br>Spots');
                        
+                 
+                    
 
 
                        if(bodyData.restaurantListing[0]){

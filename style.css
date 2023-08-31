@@ -28,6 +28,79 @@
 }
 
 @media only screen and (min-width: 800px) {
+    .loader-wrapper2 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1em;
+        padding-top: 2em;
+        height: 20em;
+    }
+
+    .errorBox {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: flex-start;
+        margin: 0 1em;
+        padding: 1em 0.6em;
+        border: solid;
+        border-width: 2px;
+        border-radius: 12px;
+        border-color: #ffa5a5;
+        background-color: #ffdddd;
+    }
+
+    .errorBox::before {
+        content: "";
+        background: url(https://ontriphelp.com/wp-content/uploads/2023/08/error.png);
+        display: flex;
+        background-size: contain;
+        height: 38px;
+        width: 38px;
+        background-repeat: no-repeat;
+    }
+
+    .errorLog {
+        font-weight: 600;
+        color: #292929;
+    }
+
+    .errorsub {
+        font-size: 0.9em;
+    }
+
+    .loader-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 10em;
+        justify-content: center;
+        gap: 1em;
+        padding-top: 2em;
+    }
+    
+    .loader-ring:before {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1em;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #0085f2 transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+    }
+    
+    .loader-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        font-family: 'Uber';
+        color: black;
+    }
 
     .gridoverlays {
         height: 100vh;
@@ -594,9 +667,9 @@ a.guide {
     flex-direction: row;
     justify-content: space-between;
     padding: 0 6em;
-    height: 25em;
-    align-items: center;
-    margin: 1.3em 0;
+    height: 23em;
+    align-items: flex-start;
+    padding-top: 3.5em;
 }
 
 .innerGrid {
@@ -718,8 +791,9 @@ a.linkGrids {
     flex-direction: row;
     justify-content: space-between;
     padding: 0 6em;
-    height: 25em;
-    align-items: center;
+    height: 23em;
+    align-items: flex-start;
+    padding-top: 3.5em;
 }
 
 .labelheadings {
@@ -1029,6 +1103,121 @@ summary.faqHeader {
         display: flex;
         justify-content: space-between;
         font-family: "Uber";
+    }
+
+    .arrivalSection {
+        display: flex;
+        font-family: 'Uber';
+        font-size: 1.1em;
+        position: relative;
+        align-items: center;
+        gap: 2em;
+        padding: 1em 0em;
+        background: linear-gradient(to right, #FF7A00, #FFA800);
+        animation: gradientAnimation 4s linear infinite;
+        color: white;
+        overflow-x: clip;
+        padding-left: 4em;
+        text-decoration: unset;
+        justify-content: center;
+        margin-bottom: 0.8em;
+    }
+
+    @keyframes gradientAnimation {
+        0% {
+            background-position: 100% 0;
+          }
+          100% {
+            background-position: -100% 0;
+          }
+      }
+    
+    .arrivalimg {
+        height: 5em;
+        width: 7em;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+        top: -8px;
+        left: 0;
+    }
+    
+    .arrivaldownload {
+        height: 2em;
+        width: 2em;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    
+    .arrivalText {
+        width: 8em;
+        letter-spacing: 0.8px;
+    }
+    
+    
+
+    
+    .loader-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 10em;
+        justify-content: center;
+        gap: 1em;
+        padding-top: 2em;
+    }
+    
+    .loader-ring:before {
+        content: " ";
+        display: block;
+        width: 64px;
+        height: 64px;
+        margin-bottom: 1em;
+        border-radius: 50%;
+        border: 6px solid #fff;
+        border-color: #0085f2 transparent #fff transparent;
+        animation: lds-dual-ring 1.2s linear infinite;
+    }
+    
+    .loader-ring {
+        display: inline-block;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        font-family: 'Uber';
+        color: black;
+    }
+
+    .errorBox {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: flex-start;
+        margin: 0 1em;
+        padding: 1em 0.6em;
+        border: solid;
+        border-width: 2px;
+        border-radius: 12px;
+        border-color: #ffa5a5;
+        background-color: #ffdddd;
+    }
+    .errorBox::before {
+        content: "";
+        background: url(https://ontriphelp.com/wp-content/uploads/2023/08/error.png);
+        display: flex;
+        background-size: contain;
+        height: 38px;
+        width: 38px;
+        background-repeat: no-repeat;
+    }
+    
+    .errorLog {
+        font-weight: 600;
+        color: #292929;
+    }
+    
+    .errorsub {
+        font-size: 0.9em;
     }
 
     .voucherprocessing {

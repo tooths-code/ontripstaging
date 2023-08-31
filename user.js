@@ -842,7 +842,7 @@ const bcode = urlParams.get('bookingcode');
                         driverCall.setAttribute('target','_blank');
             
                         driverDetails.appendChild(driverCall);
-                        elementMaker('p',driverDetails,'taskdriverName','',`<b>Mr. ${task.driverName}</b> is on his way to pick you!`);
+                        elementMaker('p',driverDetails,'taskdriverName','',`<b>Mr. ${task.driverName}</b> will be at the pickup location!`);
                         taskInfo.appendChild(driverDetails);
                         }
                     }
@@ -1694,7 +1694,7 @@ const bcode = urlParams.get('bookingcode');
             
             return p.appendChild(el);
           }
-        
-        
+          
+  
 })
 

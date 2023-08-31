@@ -1158,12 +1158,12 @@ summary.faqHeader {
 
     /* TESTING CSS */
     .taskInfo {
-        padding: 0.6em;
+        padding: 0.9em;
         font-family: 'Uber';
         display: flex;
         flex-direction: column;
         background-color: #FFF5ED;
-        border-radius: 0.5em;
+        border-radius: 0.8em;
         border: solid;
         border-width: 1px;
         border-color: #fff1d6;
@@ -1210,15 +1210,15 @@ summary.faqHeader {
     
     .taskstatus {
         font-size: 0.77em;
-        padding: 0.3em 0.8em;
-      
+        padding: 0.3em 1.2em;
         width: fit-content;
         border: solid;
         border-width: 1px;
-        border-radius: 0.3em;
+        border-radius: 0.6em;
         /* border-color: #f2c26a; */
         /* color: #e77000; */
         font-weight: 500;
+        margin-bottom: 0.3em;
     }
     
     .taskstatus.completed {
@@ -1252,12 +1252,11 @@ summary.faqHeader {
 
     a.driverCallIcon {
         background: url(https://ontriphelp.com/wp-content/uploads/2023/06/Frame-36.png);
-        width: 3em;
+        width: 4em;
         height: 3em;
-        display: flex;
         background-size: contain;
         background-repeat: no-repeat;
-        align-items: flex-end;
+        align-items: center;
     }
 
     .driverDiv {

@@ -1099,6 +1099,195 @@ summary.faqHeader {
     body.body {
         margin: 0px;
     }
+
+/* DAY WISE SCROLLER */
+.tabWrapper {
+    display: flex;
+    font-family: 'Uber';
+    justify-content: flex-start;
+    align-items: center;
+    background: #fbfbfb;
+    align-content: center;
+    cursor: pointer;
+}
+
+.tab-button.active {
+    border: solid;
+    border-width: 0 0 4px 0;
+    border-color: #0085F2;
+    background: white;
+    color: black;
+}
+
+.tab-button {
+    display: flex;
+    gap: 3px;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.2em 1.5em;
+    color: #717171;
+}
+
+.tabHeadText {
+    font-weight: 600;
+    font-size: 1.1em;
+}
+
+.tabHeadDate {
+    font-size: 13px;
+    letter-spacing: 0.3px;
+}
+
+/* END of DAY WISE SCROLLER */
+
+    /* TESTING CSS */
+    .taskInfo {
+        padding: 0.6em;
+        font-family: 'Uber';
+        display: flex;
+        flex-direction: column;
+        background-color: #FFF5ED;
+        border-radius: 0.5em;
+        border: solid;
+        border-width: 1px;
+        border-color: #fff1d6;
+        gap: 1em;
+        padding-bottom: 1em;
+    }
+    
+    .taskInfo.completed {
+        background-color: #edffe9;
+        color: #484848;
+        border-color: #e4fbe0;
+    }
+
+    .taskInfo.in.progress {
+        background-color: #fff7e9;
+        border-color: #ffecc8;
+        color: #484848;
+    }
+
+    .taskInfo.not.started {
+        background-color: #f4f4f4;
+        border-color: #e3e3e3;
+        color: #484848;
+    }
+
+    
+    .itinerarySection {
+        font-family: 'Uber';
+    }
+    
+    .detailWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3em;
+    }
+
+    .loader-wrapper3 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 11em;
+    }
+    
+    .taskstatus {
+        font-size: 0.77em;
+        padding: 0.3em 0.8em;
+      
+        width: fit-content;
+        border: solid;
+        border-width: 1px;
+        border-radius: 0.3em;
+        /* border-color: #f2c26a; */
+        /* color: #e77000; */
+        font-weight: 500;
+    }
+    
+    .taskstatus.completed {
+        background-color: #C3FFB9;
+        color: #26A811;
+        border-color: #a6fa98;
+    }
+      
+      .taskstatus.in.progress {
+          background-color: #ffe5b5;
+         border-color: #f2c26a; 
+        color: #e77000;
+      }
+      
+      .taskstatus.not.started {
+        background-color: #eaeaea;
+        border-color: #d3d3d3;
+        color: #555555;
+    }
+
+    .itineraryTask {
+        color: #454201;
+        font-size: 1.3em;
+        font-weight: 600;
+    }
+    
+    .itineraryDescript {
+        font-size: 0.92em;
+        color: #504D4D;
+    }
+
+    a.driverCallIcon {
+        background: url(https://ontriphelp.com/wp-content/uploads/2023/06/Frame-36.png);
+        width: 3em;
+        height: 3em;
+        display: flex;
+        background-size: contain;
+        background-repeat: no-repeat;
+        align-items: flex-end;
+    }
+
+    .driverDiv {
+        display: flex;
+        align-items: center;
+        gap: 0.8em;
+        padding: 0.2em 1em;
+        background: white;
+        border-radius: 0.6em;
+        border: solid;
+        border-width: 1px;
+        border-color: #ffd78e;
+        justify-content: center;
+    }
+
+    .driverDiv.completed {
+        background-color: #ffffff;
+        color: #424242;
+        border-color: #a6fa98;
+    }
+
+      .driverDiv.in.progress {
+          background-color: #ffffff;
+         border-color: #f2c26a; 
+         color: #424242;
+      }
+      
+      .driverDiv.not.started {
+        background-color: #ffffff;
+        border-color: #d3d3d3;
+        color: #555555;
+    }
+
+    .tab-content {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .tabContentWrapper {
+        margin-top: 1em;
+        padding: 0.1em 1em;
+        margin-bottom: 0.5em;
+    }
+    /* CLOSING TEST */
+
     .tripdest {
         display: flex;
         justify-content: space-between;
@@ -1120,7 +1309,6 @@ summary.faqHeader {
         padding-left: 4em;
         text-decoration: unset;
         justify-content: center;
-        margin-bottom: 0.8em;
     }
 
     @keyframes gradientAnimation {
@@ -1472,6 +1660,7 @@ summary.faqHeader {
     .section2 {
         padding: 0.7em;
         font-family: "Uber";
+        margin-top: 6px;
     }
 
     .innerSection {

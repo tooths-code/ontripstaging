@@ -1101,6 +1101,8 @@ summary.faqHeader {
     }
 
 /* DAY WISE SCROLLER */
+
+
 .tabWrapper {
     display: flex;
     font-family: 'Uber';
@@ -1109,6 +1111,17 @@ summary.faqHeader {
     background: #fbfbfb;
     align-content: center;
     cursor: pointer;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    touch-action: pan-x pan-y;
+    scroll-snap-type: x mandatory;
+    width: 100%; 
+    white-space: nowrap;
+  }
+
+  .tabWrapper::-webkit-scrollbar {
+    width: 13px;
+    height: 0;
 }
 
 .tab-button.active {
@@ -1126,7 +1139,10 @@ summary.faqHeader {
     align-items: center;
     padding: 1.2em 1.5em;
     color: #717171;
-}
+    white-space: nowrap;
+  }
+
+
 
 .tabHeadText {
     font-weight: 600;

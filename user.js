@@ -642,7 +642,7 @@ const bcode = urlParams.get('bookingcode');
                       const destination = elementMaker('div', traveldetails, 'tripdest','','');
                       const tripdate = elementMaker('div', traveldetails, 'tripdate','','');
                       const tripCta = elementMaker('div', traveldetails, 'tripCta','','');
-                      elementMaker('div', section, 'message','',bodyData.message?bodyData.message:'We Hope You Have a Wonderful Journey');
+                      // elementMaker('div', section, 'message','',bodyData.message?bodyData.message:'We Hope You Have a Wonderful Journey');
 
                       
                       elementMaker('div', destination, 'destination','',bodyData.destination);
@@ -697,6 +697,9 @@ const bcode = urlParams.get('bookingcode');
                       }
                       
                       //ITINERARY SECTION
+                      // const note = elementMaker('div',output,'arriva','','');
+                      // elementMaker('div',note,'manoj','','Kindly note that the status for each component in the itinerary is tentative');
+
                       const section1_6 = elementMaker('div',output,'itinerarySection','itineraryContainer','');
                       const section2 = elementMaker('div', output, 'section2','','');
                       loaderJS3(section1_6);
@@ -710,144 +713,148 @@ const bcode = urlParams.get('bookingcode');
                         hideLoader3()
                         const tabContainer = document.getElementById('itineraryContainer');
               
-                                let defaultTabId = null;
-                                let defaultTabbuttonId = null;
-            
-                                const tabButtonWrapper = document.createElement('div');
-                                tabButtonWrapper.className = 'tabWrapper';
-            
+                        let defaultTabbuttonId = null;
+                        let defaultTabId = null;
+    
+                        const tabButtonWrapper = document.createElement('div');
+                        tabButtonWrapper.className = 'tabWrapper';
+    
+                        
+                        //For Tab Buttons
+                        for (const day in data) {
+                                        const tabButton = document.createElement('div');
+                                        const tabButtonHead = document.createElement('div');
+                                        const tabButtonDate = document.createElement('div');
+                                        
+                                        tabButton.className = 'tab-button';
+                                        tabButtonHead.className = 'tabHeadText';
+                                        tabButtonDate.className = 'tabHeadDate';
+                                      
+                                        tabButton.id = day+1;                        
+                                        tabButtonHead.textContent = `Day ${day.split('Day')[1]}`
+                                        tabButtonDate.textContent = data[day][0].date;
+    
+                                        tabButton.onclick = () => {
+                                            openTab(day);
+                                        };
+                                        tabButton.appendChild(tabButtonHead);
+                                        tabButton.appendChild(tabButtonDate);
+                                        tabButtonWrapper.appendChild(tabButton);
+                                        tabContainer.appendChild(tabButtonWrapper);
+    
+                                        const inProgress = data[day].find(task => task.status === "In Progress");
+                                        if (inProgress && defaultTabbuttonId === null) {
+                                            defaultTabbuttonId = day+1;
+                                            // console.log(defaultTabbuttonId)
+                                        }
+                                    }
+    
+    
+                        const tabContentWrapper = document.createElement('div');
+                        tabContentWrapper.className = 'tabContentWrapper';
+    
+    
+                       //For Tab Contents with Current Tab Logic
+                       for (const day in data) {
+                                        const tabContent = document.createElement('div');
+                                        tabContent.className = 'tab-content';
+                                        tabContent.id = day;
+                                        tabContentWrapper.appendChild(tabContent);
+                                        tabContainer.appendChild(tabContentWrapper);
+                
+                                        const inProgress = data[day].find(task => task.status === "In Progress");
+                                        if (inProgress && defaultTabId === null) {
+                                            defaultTabId = day;
+                                        }
+                                    }
                                 
-                                  //For Tab Buttons
-                                  for (const day in data) {
-                                    const tabButton = document.createElement('div');
-                                    const tabButtonHead = document.createElement('div');
-                                    const tabButtonDate = document.createElement('div');
                                     
-                                    tabButton.className = 'tab-button';
-                                    tabButtonHead.className = 'tabHeadText';
-                                    tabButtonDate.className = 'tabHeadDate';
-                                  
-                                    tabButton.id = day+1;                        
-                                    tabButtonHead.textContent = `Day ${day.split('Day')[1]}`
-                                    tabButtonDate.textContent = data[day][0].date;
-
-                                    tabButton.onclick = () => {
-                                        openTab(day);
-                                    };
-                                    tabButton.appendChild(tabButtonHead);
-                                    tabButton.appendChild(tabButtonDate);
-                                    tabButtonWrapper.appendChild(tabButton);
-                                    tabContainer.appendChild(tabButtonWrapper);
-
-                                    const inProgress = data[day].find(task => task.status === "In Progress");
-                                    if (inProgress && defaultTabbuttonId === null) {
-                                        defaultTabbuttonId = day+1;
-                                        // console.log(defaultTabbuttonId)
+                                    //Event Listner for Tab Buttons
+                                    function openTab(tabId) {
+                                        let currentScrollValue = 0;
+                                        const allButtons = document.querySelectorAll('.tab-button');
+                                            allButtons.forEach(button => {
+                                                button.classList.remove('active');
+                                            });
+                
+                                        const tabContents = document.getElementsByClassName('tab-content');
+                                        for (const content of tabContents) {
+                                            content.style.display = 'none';
+                                        }
+                
+                                        document.getElementById(tabId+1).classList.add('active');
+                                        // tabButton.classList.add('active');
+                                        document.getElementById(tabId).style.display = 'flex';
+                
+                                      
+                                        const tabIdLenght = document.querySelectorAll('.tab-button').length
+                                        console.log(tabIdLenght);
+    
+                                        currentScrollValue = (parseInt(`${tabId.split('Day')[1]}`) - 1) * 122;
+                                        const tabContainer = document.querySelector('.tabWrapper');
+                                        tabContainer.scrollTo({ left: currentScrollValue, behavior: 'smooth' });
+                
                                     }
-                                }
-
-
-            
-                                const tabContentWrapper = document.createElement('div');
-                                tabContentWrapper.className = 'tabContentWrapper';
-            
-            
-                                //For Tab Contents with Current Tab Logic
-                                for (const day in data) {
-                                    const tabContent = document.createElement('div');
-                                    tabContent.className = 'tab-content';
-                                    tabContent.id = day;
-                                    tabContentWrapper.appendChild(tabContent);
-                                    tabContainer.appendChild(tabContentWrapper);
-            
-                                    const inProgress = data[day].find(task => task.status === "In Progress");
-                                    if (inProgress && defaultTabId === null) {
-                                        defaultTabId = day;
+                
+                       // Current Tab is In-Progress ID
+                       if (defaultTabId !== null) {
+                                        openTab(defaultTabId);
                                     }
-                                }
+                                    
+                
+                                //Populating the Data in Tab Contents
+                                    for (const day in data) {
+                         //Element Creator Function
+                        
+                        const tabContent = document.getElementById(day);
+                
+                        for (const task of data[day]) {
+                            const taskInfo = document.createElement('div');
+                            const detailWrapper = document.createElement('div');
                             
-                                
-                                //Event Listner for Tab Buttons
-                                function openTab(tabId) {
-                                    let currentScrollValue = 0;
-                                    const allButtons = document.querySelectorAll('.tab-button');
-                                        allButtons.forEach(button => {
-                                            button.classList.remove('active');
-                                        });
-            
-                                    const tabContents = document.getElementsByClassName('tab-content');
-                                    for (const content of tabContents) {
-                                        content.style.display = 'none';
-                                    }
-            
-                                    document.getElementById(tabId+1).classList.add('active');
-                                    // tabButton.classList.add('active');
-                                    document.getElementById(tabId).style.display = 'flex';
-            
-                                  
-                                    const tabIdLenght = document.querySelectorAll('.tab-button').length
-                                    console.log(tabIdLenght);
-
-                                    currentScrollValue = (parseInt(`${tabId.split('Day')[1]}`) - 1) * 122;
-                                    const tabContainer = document.querySelector('.tabWrapper');
-                                    tabContainer.scrollTo({ left: currentScrollValue, behavior: 'smooth' });
-            
-                                }
-            
-                                // Current Tab is In-Progress ID
-                                if (defaultTabId !== null) {
-                                    openTab(defaultTabId);
-                                }
-                                
-            
-                            //Populating the Data in Tab Contents
-                                for (const day in data) {
-                     //Element Creator Function
-                    
-                    const tabContent = document.getElementById(day);
-            
-                    for (const task of data[day]) {
-                        const taskInfo = document.createElement('div');
-                        const detailWrapper = document.createElement('div');
-                        
-                        const status = document.createElement('div');
-                        const itineraryTask = document.createElement('div');
-                        const itineraryDescript = document.createElement('div');
-            
-                        taskInfo.className = `taskInfo ${task.status.toLowerCase()}`;
-                        detailWrapper.className = 'detailWrapper';
-                        status.className = `taskstatus ${task.status.toLowerCase()}`;
-                        itineraryTask.className = 'itineraryTask';
-                        itineraryDescript.className = 'itineraryDescript';
-                        
-            
-                        status.textContent = task.status;
-                        itineraryTask.textContent = task.task_name;
-                        itineraryDescript.textContent = task.description;
-            
-                        detailWrapper.appendChild(status);
-                        detailWrapper.appendChild(itineraryTask);
-                        detailWrapper.appendChild(itineraryDescript);
-                        taskInfo.appendChild(detailWrapper);
-                        tabContent.appendChild(taskInfo);
-            
-                        task.driverNumber&&task.status!=='Completed'?drivers():null;
-                        //DRIVER
-                        function drivers(){
-                        const driverDetails = document.createElement('div');
-                        driverDetails.className = `driverDiv ${task.status.toLowerCase()}`;
-                        const driverCall = document.createElement('a');
-                        driverCall.className = 'driverCallIcon';
-                        driverCall.setAttribute('href',`tel:${task.driverNumber}`)
-                        driverCall.setAttribute('target','_blank');
-            
-                        driverDetails.appendChild(driverCall);
-                        elementMaker('p',driverDetails,'taskdriverName','',`<b>Mr. ${task.driverName}</b> will be at the pickup location!`);
-                        taskInfo.appendChild(driverDetails);
+                            const status = document.createElement('div');
+                            const itineraryTask = document.createElement('div');
+                            // const itineraryDescript = document.createElement('div');
+                
+                            taskInfo.className = `taskInfo ${task.status.toLowerCase()}`;
+                            detailWrapper.className = 'detailWrapper';
+                            status.className = `taskstatus ${task.status.toLowerCase()}`;
+                            itineraryTask.className = 'itineraryTask';
+                            // itineraryDescript.className = 'itineraryDescript';
+                            
+                            //SINCE CX TEAM FINDS IT DIFFICULT TO UPDATE THE STATUS >> Converting this to normal day
+                            // status.textContent = task.status;
+                            status.textContent = `Day ${day.split('Day')[1]}`;
+                            itineraryTask.textContent = task.task_name;
+                            // itineraryDescript.textContent = task.description;
+    
+                            detailWrapper.appendChild(status);
+                            detailWrapper.appendChild(itineraryTask);
+                            // detailWrapper.appendChild(itineraryDescript);
+                            taskInfo.appendChild(detailWrapper);
+                            tabContent.appendChild(taskInfo);
+                            elementMaker('div',detailWrapper,'itineraryDescript','',`<b>Pick Up Time:</b> ${task.pickup_time}`)
+                            elementMaker('div',detailWrapper,'itineraryDescript','',`<b>Pick Up Point:</b> ${task.pickup_point}`)
+                            
+    
+                            task.driverNumber&&task.status!=='Completed'?drivers():null;
+                            //DRIVER
+                            function drivers(){
+                            const driverDetails = document.createElement('div');
+                            driverDetails.className = `driverDiv ${task.status.toLowerCase()}`;
+                            const driverCall = document.createElement('a');
+                            driverCall.className = 'driverCallIcon';
+                            driverCall.setAttribute('href',`tel:${task.driverNumber}`)
+                            driverCall.setAttribute('target','_blank');
+                
+                            driverDetails.appendChild(driverCall);
+                            elementMaker('p',driverDetails,'taskdriverName','',`<b>Mr. ${task.driverName}</b> will be at the pickup location!`);
+                            taskInfo.appendChild(driverDetails);
+                            }
                         }
                     }
-                }
                     }
+                    //FUNCTION END
 
                       // AIRPORT PICK UP DETAILS
                       function airportPickUpOnly(){
@@ -861,6 +868,7 @@ const bcode = urlParams.get('bookingcode');
 
                           bodyData.driverStatus === "Driver Assigned"?driverDetials():remarks();
 
+                          //Driver Details for Itinerary Updates
                           function driverDetials(){
                             const driverDetail = elementMaker('div', innerSection, 'innerDiv2','','');
                             const driverCall = elementMaker('a', driverDetail, 'dcall','','');
@@ -1694,7 +1702,7 @@ const bcode = urlParams.get('bookingcode');
             
             return p.appendChild(el);
           }
-          
-  
+
+        
 })
 

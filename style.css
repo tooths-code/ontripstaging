@@ -1154,6 +1154,35 @@ summary.faqHeader {
     letter-spacing: 0.3px;
 }
 
+.arriva {
+    display: flex;
+    font-family: 'Uber';
+    color: black;
+    text-decoration: dotted;
+    align-items: center;
+    justify-content: center;
+    padding: 0.7em 1em;
+    font-size: 14px;
+    background: #c4e3fc;
+    padding-top: 1.2em;
+}
+
+.manoj {
+    text-align: left;
+    display: flex;
+    gap: 0.6em;
+}
+
+.manoj::before {
+    content: "";
+    background: url(https://ontriphelp.com/wp-content/uploads/2023/09/Info.png);
+    height: 3em;
+    width: 3em;
+    display: flex;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 /* END of DAY WISE SCROLLER */
 
     /* TESTING CSS */
@@ -1172,15 +1201,15 @@ summary.faqHeader {
     }
     
     .taskInfo.completed {
-        background-color: #edffe9;
-        color: #484848;
-        border-color: #e4fbe0;
+        background-color: #e5f0fabd;
+        color: #3f3f3f;
+        border-color: #ced7ff;
     }
 
     .taskInfo.in.progress {
-        background-color: #fff7e9;
-        border-color: #ffecc8;
-        color: #484848;
+        background-color: #e5f0fabd;
+        color: #3f3f3f;
+        border-color: #ced7ff;
     }
 
     .taskInfo.not.started {
@@ -1222,16 +1251,16 @@ summary.faqHeader {
     }
     
     .taskstatus.completed {
-        background-color: #C3FFB9;
-        color: #26A811;
-        border-color: #a6fa98;
+        background-color: #ffffff;
+        color: #0f8cf3;
+        border-color: #a5d7ff;
     }
       
-      .taskstatus.in.progress {
-          background-color: #ffe5b5;
-         border-color: #f2c26a; 
-        color: #e77000;
-      }
+    .taskstatus.in.progress {
+        background-color: #ffffff;
+        color: #0f8cf3;
+        border-color: #a5d7ff;
+    }
       
       .taskstatus.not.started {
         background-color: #eaeaea;
@@ -1240,14 +1269,19 @@ summary.faqHeader {
     }
 
     .itineraryTask {
-        color: #454201;
         font-size: 1.3em;
         font-weight: 600;
+        margin-bottom: 9px;
+        padding-bottom: 0.5em;
+        border: dotted;
+        border-width: 0 0 1px 0;
+        border-color: #bbbbbb;
     }
     
     .itineraryDescript {
-        font-size: 0.92em;
+        font-size: 0.8em;
         color: #504D4D;
+        letter-spacing: 1px;
     }
 
     a.driverCallIcon {
@@ -1265,7 +1299,7 @@ summary.faqHeader {
         gap: 0.8em;
         padding: 0.2em 1em;
         background: white;
-        border-radius: 0.6em;
+        border-radius: 1em;
         border: solid;
         border-width: 1px;
         border-color: #ffd78e;
@@ -1275,14 +1309,14 @@ summary.faqHeader {
     .driverDiv.completed {
         background-color: #ffffff;
         color: #424242;
-        border-color: #a6fa98;
+        border-color: #ced7ff;
     }
 
-      .driverDiv.in.progress {
-          background-color: #ffffff;
-         border-color: #f2c26a; 
-         color: #424242;
-      }
+    .driverDiv.in.progress {
+        background-color: #ffffff;
+        color: #424242;
+        border-color: #ced7ff;
+    }
       
       .driverDiv.not.started {
         background-color: #ffffff;
@@ -2218,8 +2252,8 @@ h3.labelheadings {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #E9F5FF;
-    border-radius: 1.3em;
+    background: linear-gradient(to top, #d6e9fabd, #f4faffbd);
+    border-radius: 0.9em;
     padding: 1em 0em;
     cursor: pointer;
 }

@@ -1102,6 +1102,26 @@ summary.faqHeader {
 
 /* DAY WISE SCROLLER */
 
+.savesubmit {
+    text-decoration: underline;
+    cursor: pointer;
+    text-align: end;
+    width: fit-content;
+    padding: 0.6em 1em;
+    background: #0d78cf;
+    border-radius: 0.6em;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-top: 1.4em;
+    text-decoration: dotted;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: 0.4px;
+    border: solid;
+    border-width: 1px;
+    border-color: #137bd17d;
+}
+
 
 .tabWrapper {
     display: flex;

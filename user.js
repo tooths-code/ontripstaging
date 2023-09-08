@@ -72,23 +72,7 @@ const bcode = urlParams.get('bookingcode');
           }
        
 
-      // fetch(url,{method:'GET'}).then(res=>res.json()).then(data=>{bodyData=data}).then(kee=>{fetch(`https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=todolist&destination=${bodyData.destination}`,{method:'GET'}).then(response => response.text()).then(loop => {
-      // // console.log(bodyData)
-      // const decode = JSON.parse(atob(loop));
-      // // console.log(bodyData)
-      
-      // if(bodyData.error){
-      //   failedlogin()
-      // }
-      // else{
-      //   if (window.innerWidth < 768) {
-      //     builduserdata(decode)
-      //   }    
-      //   else{
-      //     desktopMode(decode)
-      //   }
-        
-      //   }}).catch(error => {console.error('Error fetching checkbox items:', error)});})
+  
 
         fetch(url,{method:'GET'}).then(res=>res.json()).then(data=>{
           bodyData=data;
@@ -112,7 +96,7 @@ const bcode = urlParams.get('bookingcode');
         decode[0]?builduserdataTodoList(decode):hideLoader()
       }  
       else{
-        decode[0]?desktopModeTodoList(decode):null;
+        decode[0]?desktopModeTodoList(decode):hideLoader2();
       }
        
      
@@ -518,7 +502,7 @@ const bcode = urlParams.get('bookingcode');
                                 
                           elementMaker('div', restname, 'restname','',data.restName);
                           elementMaker('div', restname, 'back','','Back');
-                          elementMaker('div', innerPopUp, 'restrating','',`${data.starrating} Star Ratings | ${data.price} for Two`);
+                          elementMaker('div', innerPopUp, 'restrating','',`${data.starrating} Star Ratings | ${data.price}`);
     
                           const cuisine =  elementMaker('div', innerPopUp, 'tagcontainer','','');
                           data.cuisines.forEach(items=>{
@@ -703,7 +687,7 @@ const bcode = urlParams.get('bookingcode');
                       const section1_6 = elementMaker('div',output,'itinerarySection','itineraryContainer','');
                       const section2 = elementMaker('div', output, 'section2','','');
                       loaderJS3(section1_6);
-                      const itineraryurl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=itineraryUpdates&bookingcode=${bcode}`;
+                      const itineraryurl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=itineraryUpdates&bookingcode=${bodyData.bookingcode}`;
 
                       fetch(itineraryurl,{method:'GET'}).then(res=>res.json()).then(data=>{
                         data.error?airportPickUpOnly():itineraryUpdate(data);
@@ -833,11 +817,13 @@ const bcode = urlParams.get('bookingcode');
                             // detailWrapper.appendChild(itineraryDescript);
                             taskInfo.appendChild(detailWrapper);
                             tabContent.appendChild(taskInfo);
-                            elementMaker('div',detailWrapper,'itineraryDescript','',`<b>Pick Up Time:</b> ${task.pickup_time}`)
-                            elementMaker('div',detailWrapper,'itineraryDescript','',`<b>Pick Up Point:</b> ${task.pickup_point}`)
+                            task.pickup_time?elementMaker('div',detailWrapper,'itineraryDescript','',`<b>Pick Up Time:</b> ${task.pickup_time}`):null;
+                            task.pickup_point?elementMaker('div',detailWrapper,'itineraryDescript','',`<b>Pick Up Point:</b> ${task.pickup_point}`):null;
+                            task.vehicle_no?elementMaker('div',detailWrapper,'itineraryDescript','',`<b>Vehicle details:</b> ${task.vehicle_no}`):null;
                             
     
                             task.driverNumber&&task.status!=='Completed'?drivers():null;
+
                             //DRIVER
                             function drivers(){
                             const driverDetails = document.createElement('div');
@@ -848,7 +834,8 @@ const bcode = urlParams.get('bookingcode');
                             driverCall.setAttribute('target','_blank');
                 
                             driverDetails.appendChild(driverCall);
-                            elementMaker('p',driverDetails,'taskdriverName','',`<b>Mr. ${task.driverName}</b> will be at the pickup location!`);
+                            task.driverName?elementMaker('p',driverDetails,'taskdriverName','',`<b>Mr. ${task.driverName}</b> will be at the pickup location!`):elementMaker('p',driverDetails,'taskdriverName','',`<b>Driver</b> will be at the pickup location!`)
+                            
                             taskInfo.appendChild(driverDetails);
                             }
                         }
@@ -1231,7 +1218,7 @@ const bcode = urlParams.get('bookingcode');
                               
                         elementMaker('div', restname, 'restname','',data.restName);
                         elementMaker('div', restname, 'back','','Back');
-                        elementMaker('div', innerPopUp, 'restrating','',`${data.starrating} ⭐ Ratings | ${data.price} for Two`);
+                        elementMaker('div', innerPopUp, 'restrating','',`${data.starrating} ⭐ Ratings | ${data.price}`);
   
                         const cuisine =  elementMaker('div', innerPopUp, 'tagcontainer','','');
                         data.cuisines.forEach(items=>{
@@ -1470,7 +1457,7 @@ const bcode = urlParams.get('bookingcode');
                                 // console.log(section6)
                                 
                                 let checkListItems = null;
-                                const checkListUrl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=userCheckedList&bookingcode=${bcode}`;
+                                const checkListUrl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=userCheckedList&bookingcode=${bodyData.bookingcode}`;
                                 fetch(checkListUrl,{method:'GET'}).then(res=>res.json()).then((data)=>{
                                   checkListItems=data;
                                   // console.log(data)
@@ -1515,9 +1502,9 @@ const bcode = urlParams.get('bookingcode');
                                       
                                       checkbox.checked = preSelected.includes(task.uniqueCode);
                       
-                                      checkbox.addEventListener('change', async () => {
-                                        sendCheckedValues();
-                                      });
+                                      // checkbox.addEventListener('change', async () => {
+                                      //   sendCheckedValues();
+                                      // });
               
                                       const labelWrapper = document.createElement('div');
                                       labelWrapper.classList.add('labelwrapper');
@@ -1537,7 +1524,18 @@ const bcode = urlParams.get('bookingcode');
                                       checkboxwrapper.appendChild(labelWrapper);;
                                       taskListDiv.appendChild(checkboxwrapper)
                                     });
-              
+                                    
+                                    const savebutton = document.createElement('div');
+                                    savebutton.classList.add('savesubmit');
+                                    savebutton.textContent = "Save & Submit"
+                                    taskListDiv.appendChild(savebutton);
+
+                                    savebutton.addEventListener('click', ()=>{
+                                      sendCheckedValues();
+                                      savebutton.textContent = "Saving Progress..Please wait";
+                                      savebutton.setAttribute('style','background:#0d78cf;border-color:#0d78cf');
+                                      
+                                    })
               
                                     //SET CHECKED VALUES
                                     async function sendCheckedValues() {
@@ -1549,7 +1547,19 @@ const bcode = urlParams.get('bookingcode');
                                         const urlder = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=userList&queryCode=${bodyData.bookingcode}&tasks=${tasks}`;
               
                                         fetch(urlder,{method:'GET'}).then(res => res.json())
-                                        .then(data => { 
+                                        .then(data => {
+                                          
+                                          if(data.status === "success"){
+                                            savebutton.innerText = "Progress Saved";
+                                            savebutton.setAttribute('style','background:#00c312;border-color:#00c312')
+                                          }
+
+                                          else{
+                                            savebutton.innerText = "Network Busy";
+                                            savebutton.setAttribute('style','background:##c3002a;border-color:##c3002a')
+                                          }
+                                         
+                                          
                                           // loadery.style.display='none';
                                           // console.log(data)
                                         })
@@ -1569,7 +1579,7 @@ const bcode = urlParams.get('bookingcode');
                           
                           let checkListItems = null;
                           const todoLinks = document.querySelector('#toGrid')
-                          const checkListUrl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=userCheckedList&bookingcode=${bcode}`;
+                          const checkListUrl = `https://script.google.com/macros/s/AKfycbx9m5WHuo3S4iFsf6-b1yfzVIrH7B69G4Ha1OSUyK-vmwvx06r_bUiSCAdTMvOFKSPT/exec?route=userCheckedList&bookingcode=${bodyData.bookingcode}`;
                           fetch(checkListUrl,{method:'GET'}).then(res=>res.json()).then((data)=>{
                             checkListItems=data;
                             // console.log(data)
@@ -1702,7 +1712,10 @@ const bcode = urlParams.get('bookingcode');
             
             return p.appendChild(el);
           }
+          
 
+          
+        
         
 })
 
